@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StyleHub - Checkout</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">StyleHub</div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="wishlist.html">Wishlist</a>
+        <a href="cart.html">Cart</a>
+        <a href="checkout.html">Checkout</a>
+    </nav>
+
+</header>
+
+<section class="featured">
+
+    <h2>Checkout</h2>
+
+    <form id="checkoutForm">
+
+        <input
+            type="text"
+            id="name"
+            placeholder="Full Name"
+            required>
+
+        <input
+            type="email"
+            id="email"
+            placeholder="Email Address"
+            required>
+
+        <input
+            type="tel"
+            id="phone"
+            placeholder="Phone Number"
+            required>
+
+        <textarea
+            id="address"
+            rows="4"
+            placeholder="Delivery Address"
+            required>
+        </textarea>
+
+        <select id="payment" required>
+
+            <option value="">Select Payment Method</option>
+
+            <option>Cash on Delivery</option>
+
+            <option>UPI</option>
+
+            <option>Credit Card</option>
+
+            <option>Debit Card</option>
+
+        </select>
+
+        <h3 id="orderTotal">
+            Order Total : ₹0
+        </h3>
+
+        <br>
+
+        <button type="submit">
+            Place Order
+        </button>
+
+    </form>
+
+</section>
+
+<footer>
+
+<p>© 2026 StyleHub | Fashion & Apparel</p>
+
+</footer>
+
+<script src="script.js"></script>
+
+<script>
+
+// Show Cart Total
+let total = 0;
+
+cart.forEach(function(item){
+
+    total += item.price;
+
+});
+
+document.getElementById("orderTotal").innerHTML =
+"Order Total : ₹" + total;
+
+
+// Place Order
+
+document.getElementById("checkoutForm").addEventListener("submit", function(e){
+
+    e.preventDefault();
+
+    if(cart.length==0){
+
+        alert("Your cart is empty!");
+
+        return;
+
+    }
+
+    alert("🎉 Order Placed Successfully!\n\nThank you for shopping with StyleHub.");
+
+    cart=[];
+
+    localStorage.setItem("cart",JSON.stringify(cart));
+
+    window.location.href="index.html";
+
+});
+
+</script>
+
+</body>
+</html>

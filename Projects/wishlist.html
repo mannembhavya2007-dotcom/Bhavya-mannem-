@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StyleHub - Wishlist</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+
+    <div class="logo">StyleHub</div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="wishlist.html">Wishlist</a>
+        <a href="cart.html">Cart</a>
+        <a href="checkout.html">Checkout</a>
+    </nav>
+
+</header>
+
+<section class="featured">
+
+    <h2>My Wishlist</h2>
+
+    <br>
+
+    <!-- Wishlist Items -->
+    <div id="wishlistItems" class="product-grid">
+
+    </div>
+
+    <br>
+
+    <div style="text-align:center;">
+
+        <button onclick="clearWishlist()">
+            Clear Wishlist
+        </button>
+
+    </div>
+
+</section>
+
+<footer>
+
+    <p>© 2026 StyleHub | Fashion & Apparel</p>
+
+</footer>
+
+<script src="script.js"></script>
+
+<script>
+
+// Clear Wishlist
+function clearWishlist(){
+
+    if(confirm("Are you sure you want to clear your wishlist?")){
+
+        wishlist = [];
+
+        localStorage.setItem("wishlist", JSON.stringify(wishlist));
+
+        displayWishlist();
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>

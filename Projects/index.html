@@ -1,46 +1,117 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FreshBite - Online Food Ordering</title>
+    <title>StyleHub - Fashion & Apparel</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
 <header>
-    <h1>🍔 FreshBite</h1>
-    <p>Fresh & Delicious Food Delivered Fast</p>
+    <div class="logo">StyleHub</div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="wishlist.html">Wishlist</a>
+        <a href="cart.html">Cart</a>
+        <a href="checkout.html">Checkout</a>
+    </nav>
 </header>
 
-<h2>Our Menu</h2>
+<section class="hero">
 
-<div class="food">
-    <h3>🍕 Pizza</h3>
-    <p>Price: ₹250</p>
-    <button onclick="addToCart('Pizza',250)">Add to Cart</button>
-</div>
+    <div class="hero-text">
+        <h1>Fashion That Fits Your Style</h1>
 
-<div class="food">
-    <h3>🍔 Burger</h3>
-    <p>Price: ₹150</p>
-    <button onclick="addToCart('Burger',150)">Add to Cart</button>
-</div>
+        <p>
+            Discover trendy fashion, shoes, handbags and accessories
+            at affordable prices.
+        </p>
 
-<div class="food">
-    <h3>🍗 Chicken Biryani</h3>
-    <p>Price: ₹300</p>
-    <button onclick="addToCart('Chicken Biryani',300)">Add to Cart</button>
-</div>
+        <a href="products.html" class="btn">
+            Shop Now
+        </a>
 
-<h2>Shopping Cart</h2>
-<ul id="cart"></ul>
-<h3 id="total">Total: ₹0</h3>
+    </div>
 
-<button onclick="placeOrder()">Place Order</button>
+</section>
 
-<p id="status"></p>
+<section class="categories">
+
+    <h2>Shop by Category</h2>
+
+    <div class="category-container">
+
+        <div class="category-card">
+            <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=500" alt="">
+            <h3>Men</h3>
+        </div>
+
+        <div class="category-card">
+            <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=500" alt="">
+            <h3>Women</h3>
+        </div>
+
+        <div class="category-card">
+            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500" alt="">
+            <h3>Shoes</h3>
+        </div>
+
+        <div class="category-card">
+            <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=500" alt="">
+            <h3>Bags</h3>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="featured">
+
+    <h2>Featured Products</h2>
+
+    <div class="product-grid">
+
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=500" alt="">
+            <h3>Casual T-Shirt</h3>
+            <p>₹699</p>
+            <button onclick="addToCart('Casual T-Shirt',699)">
+                Add to Cart
+            </button>
+        </div>
+
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=500" alt="">
+            <h3>Blue Jeans</h3>
+            <p>₹1299</p>
+            <button onclick="addToCart('Blue Jeans',1299)">
+                Add to Cart
+            </button>
+        </div>
+
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500" alt="">
+            <h3>Hand Bag</h3>
+            <p>₹1599</p>
+            <button onclick="addToCart('Hand Bag',1599)">
+                Add to Cart
+            </button>
+        </div>
+
+    </div>
+
+</section>
+
+<footer>
+
+    <p>
+        © 2026 StyleHub | Fashion & Apparel
+    </p>
+
+</footer>
 
 <script src="script.js"></script>
 
