@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="TechWorld - Electronics and Gadgets Store">
+
+    <title>TechWorld - Electronics & Gadgets</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="header">
+
+        <div class="logo">
+            <span>⚡</span> TechWorld
+        </div>
+
+        <nav class="navbar">
+
+            <a href="index.html">Home</a>
+
+            <a href="products.html">Products</a>
+
+            <a href="compare.html">Compare</a>
+
+            <a href="reviews.html">Reviews</a>
+
+            <a href="orders.html">Orders</a>
+
+        </nav>
+
+        <div class="header-buttons">
+
+            <a href="cart.html" class="cart-btn">
+                🛒 Cart
+                <span id="cart-count">0</span>
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= HERO SECTION ================= -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <p class="hero-small">
+                🔥 Latest Technology
+            </p>
+
+            <h1>
+                Upgrade Your
+                <span>Digital Life</span>
+            </h1>
+
+            <p>
+                Discover the latest electronics, gadgets,
+                smartphones, laptops and accessories
+                at the best prices.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="products.html"
+                    class="primary-btn">
+                    Shop Now
+                </a>
+
+                <a href="compare.html"
+                    class="secondary-btn">
+                    Compare Products
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="hero-image">
+
+            <div class="device-card">
+
+                <div class="device-icon">
+                    💻
+                </div>
+
+                <h3>
+                    Smart Technology
+                </h3>
+
+                <p>
+                    Powerful. Modern. Affordable.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CATEGORIES ================= -->
+
+    <section class="categories">
+
+        <div class="section-title">
+
+            <p>EXPLORE</p>
+
+            <h2>
+                Shop By Category
+            </h2>
+
+        </div>
+
+
+        <div class="category-container">
+
+            <div class="category-card">
+
+                <div class="category-icon">
+                    📱
+                </div>
+
+                <h3>
+                    Smartphones
+                </h3>
+
+                <p>
+                    Latest smartphones
+                </p>
+
+                <a href="products.html">
+                    View Products →
+                </a>
+
+            </div>
+
+
+            <div class="category-card">
+
+                <div class="category-icon">
+                    💻
+                </div>
+
+                <h3>
+                    Laptops
+                </h3>
+
+                <p>
+                    Powerful laptops
+                </p>
+
+                <a href="products.html">
+                    View Products →
+                </a>
+
+            </div>
+
+
+            <div class="category-card">
+
+                <div class="category-icon">
+                    🎧
+                </div>
+
+                <h3>
+                    Headphones
+                </h3>
+
+                <p>
+                    Premium audio
+                </p>
+
+                <a href="products.html">
+                    View Products →
+                </a>
+
+            </div>
+
+
+            <div class="category-card">
+
+                <div class="category-icon">
+                    ⌚
+                </div>
+
+                <h3>
+                    Smart Watches
+                </h3>
+
+                <p>
+                    Smart wearable devices
+                </p>
+
+                <a href="products.html">
+                    View Products →
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FEATURED PRODUCTS ================= -->
+
+    <section class="featured">
+
+        <div class="section-title">
+
+            <p>OUR PRODUCTS</p>
+
+            <h2>
+                Featured Products
+            </h2>
+
+        </div>
+
+
+        <div class="product-container">
+
+
+            <!-- PRODUCT 1 -->
+
+            <div class="product-card">
+
+                <div class="product-image">
+                    📱
+                </div>
+
+                <span class="product-badge">
+                    New
+                </span>
+
+                <h3>
+                    TechWorld X1 Smartphone
+                </h3>
+
+                <p class="product-description">
+                    6.7-inch display with powerful
+                    processor and advanced camera.
+                </p>
+
+                <div class="rating">
+                    ⭐⭐⭐⭐⭐
+                    <span>(125)</span>
+                </div>
+
+                <div class="product-bottom">
+
+                    <strong>
+                        ₹29,999
+                    </strong>
+
+                    <button
+                        onclick="addToCart('TechWorld X1 Smartphone', 29999)">
+                        Add to Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCT 2 -->
+
+            <div class="product-card">
+
+                <div class="product-image">
+                    💻
+                </div>
+
+                <span class="product-badge">
+                    Popular
+                </span>
+
+                <h3>
+                    TechBook Pro Laptop
+                </h3>
+
+                <p class="product-description">
+                    High-performance laptop for
+                    students and professionals.
+                </p>
+
+                <div class="rating">
+                    ⭐⭐⭐⭐⭐
+                    <span>(98)</span>
+                </div>
+
+                <div class="product-bottom">
+
+                    <strong>
+                        ₹59,999
+                    </strong>
+
+                    <button
+                        onclick="addToCart('TechBook Pro Laptop', 59999)">
+                        Add to Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCT 3 -->
+
+            <div class="product-card">
+
+                <div class="product-image">
+                    🎧
+                </div>
+
+                <span class="product-badge">
+                    Sale
+                </span>
+
+                <h3>
+                    SoundMax Pro Headphones
+                </h3>
+
+                <p class="product-description">
+                    Wireless noise-cancelling
+                    headphones with deep bass.
+                </p>
+
+                <div class="rating">
+                    ⭐⭐⭐⭐☆
+                    <span>(76)</span>
+                </div>
+
+                <div class="product-bottom">
+
+                    <strong>
+                        ₹4,999
+                    </strong>
+
+                    <button
+                        onclick="addToCart('SoundMax Pro Headphones', 4999)">
+                        Add to Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCT 4 -->
+
+            <div class="product-card">
+
+                <div class="product-image">
+                    ⌚
+                </div>
+
+                <span class="product-badge">
+                    New
+                </span>
+
+                <h3>
+                    SmartFit Watch
+                </h3>
+
+                <p class="product-description">
+                    Fitness tracking, heart-rate
+                    monitoring and notifications.
+                </p>
+
+                <div class="rating">
+                    ⭐⭐⭐⭐⭐
+                    <span>(64)</span>
+                </div>
+
+                <div class="product-bottom">
+
+                    <strong>
+                        ₹3,999
+                    </strong>
+
+                    <button
+                        onclick="addToCart('SmartFit Watch', 3999)">
+                        Add to Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= WHY CHOOSE US ================= -->
+
+    <section class="why-us">
+
+        <div class="section-title">
+
+            <p>WHY TECHWORLD?</p>
+
+            <h2>
+                Why Choose Us?
+            </h2>
+
+        </div>
+
+
+        <div class="features">
+
+
+            <div class="feature">
+
+                <div>
+                    🚚
+                </div>
+
+                <h3>
+                    Fast Delivery
+                </h3>
+
+                <p>
+                    Quick and reliable delivery
+                    to your doorstep.
+                </p>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div>
+                    🔒
+                </div>
+
+                <h3>
+                    Secure Payment
+                </h3>
+
+                <p>
+                    Safe and secure payment
+                    options.
+                </p>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div>
+                    ⭐
+                </div>
+
+                <h3>
+                    Quality Products
+                </h3>
+
+                <p>
+                    Genuine and high-quality
+                    electronics.
+                </p>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div>
+                    📞
+                </div>
+
+                <h3>
+                    Customer Support
+                </h3>
+
+                <p>
+                    We're always here to help
+                    our customers.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="footer">
+
+        <div class="footer-content">
+
+            <div>
+
+                <h2>
+                    ⚡ TechWorld
+                </h2>
+
+                <p>
+                    Your trusted electronics
+                    and gadgets store.
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <h3>
+                    Quick Links
+                </h3>
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="products.html">
+                    Products
+                </a>
+
+                <a href="compare.html">
+                    Compare
+                </a>
+
+                <a href="reviews.html">
+                    Reviews
+                </a>
+
+            </div>
+
+
+            <div>
+
+                <h3>
+                    Contact
+                </h3>
+
+                <p>
+                    📧 support@techworld.com
+                </p>
+
+                <p>
+                    📞 +91 98765 43210
+                </p>
+
+                <p>
+                    📍 India
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="copyright">
+
+            <p>
+                © 2026 TechWorld.
+                All Rights Reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- JavaScript -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

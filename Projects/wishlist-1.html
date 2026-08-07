@@ -1,0 +1,1378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="TechWorld Wishlist">
+
+    <title>Wishlist - TechWorld</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        /* ================================
+           WISHLIST PAGE
+        ================================= */
+
+        .wishlist-page {
+
+            min-height: 100vh;
+
+            background: #f8fafc;
+
+            padding: 50px 7%;
+
+        }
+
+
+        /* ================================
+           TITLE
+        ================================= */
+
+        .wishlist-title {
+
+            text-align: center;
+
+            margin-bottom: 35px;
+
+        }
+
+
+        .wishlist-title h1 {
+
+            font-size: 40px;
+
+            color: #111827;
+
+            margin-bottom: 8px;
+
+        }
+
+
+        .wishlist-title h1 span {
+
+            color: #2563eb;
+
+        }
+
+
+        .wishlist-title p {
+
+            color: #64748b;
+
+        }
+
+
+        /* ================================
+           WISHLIST HEADER
+        ================================= */
+
+        .wishlist-header {
+
+            max-width: 1100px;
+
+            margin: 0 auto 20px;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+        }
+
+
+        .wishlist-count {
+
+            color: #64748b;
+
+            font-size: 14px;
+
+        }
+
+
+        .clear-wishlist-btn {
+
+            border: 1px solid #dc2626;
+
+            background: white;
+
+            color: #dc2626;
+
+            padding: 9px 15px;
+
+            border-radius: 7px;
+
+            cursor: pointer;
+
+            font-weight: 600;
+
+            font-size: 12px;
+
+        }
+
+
+        .clear-wishlist-btn:hover {
+
+            background: #fef2f2;
+
+        }
+
+
+        /* ================================
+           PRODUCT GRID
+        ================================= */
+
+        .wishlist-grid {
+
+            max-width: 1100px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 20px;
+
+        }
+
+
+        /* ================================
+           PRODUCT CARD
+        ================================= */
+
+        .wishlist-card {
+
+            background: white;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 14px;
+
+            overflow: hidden;
+
+            transition: 0.3s;
+
+        }
+
+
+        .wishlist-card:hover {
+
+            transform: translateY(-4px);
+
+            box-shadow:
+                0 10px 25px
+                rgba(0, 0, 0, 0.08);
+
+        }
+
+
+        /* ================================
+           PRODUCT IMAGE
+        ================================= */
+
+        .wishlist-image {
+
+            height: 180px;
+
+            background: #f1f5f9;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 70px;
+
+            position: relative;
+
+        }
+
+
+        .wishlist-heart {
+
+            position: absolute;
+
+            top: 10px;
+
+            right: 10px;
+
+            width: 35px;
+
+            height: 35px;
+
+            border-radius: 50%;
+
+            border: none;
+
+            background: white;
+
+            color: #dc2626;
+
+            cursor: pointer;
+
+            font-size: 18px;
+
+            box-shadow:
+                0 2px 8px
+                rgba(0, 0, 0, 0.1);
+
+        }
+
+
+        .wishlist-heart:hover {
+
+            background: #fef2f2;
+
+        }
+
+
+        /* ================================
+           PRODUCT INFO
+        ================================= */
+
+        .wishlist-info {
+
+            padding: 18px;
+
+        }
+
+
+        .wishlist-category {
+
+            color: #2563eb;
+
+            font-size: 11px;
+
+            font-weight: 600;
+
+            text-transform: uppercase;
+
+            margin-bottom: 7px;
+
+        }
+
+
+        .wishlist-name {
+
+            color: #111827;
+
+            font-size: 16px;
+
+            font-weight: 700;
+
+            min-height: 42px;
+
+            margin-bottom: 8px;
+
+        }
+
+
+        .wishlist-description {
+
+            color: #64748b;
+
+            font-size: 12px;
+
+            line-height: 1.5;
+
+            min-height: 36px;
+
+            margin-bottom: 12px;
+
+        }
+
+
+        .wishlist-price {
+
+            color: #111827;
+
+            font-size: 19px;
+
+            font-weight: 700;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        /* ================================
+           BUTTONS
+        ================================= */
+
+        .wishlist-buttons {
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 8px;
+
+        }
+
+
+        .add-cart-btn {
+
+            border: none;
+
+            background: #2563eb;
+
+            color: white;
+
+            padding: 10px 5px;
+
+            border-radius: 7px;
+
+            cursor: pointer;
+
+            font-size: 12px;
+
+            font-weight: 600;
+
+        }
+
+
+        .add-cart-btn:hover {
+
+            background: #1d4ed8;
+
+        }
+
+
+        .remove-btn {
+
+            border: 1px solid #d1d5db;
+
+            background: white;
+
+            color: #374151;
+
+            padding: 10px 5px;
+
+            border-radius: 7px;
+
+            cursor: pointer;
+
+            font-size: 12px;
+
+            font-weight: 600;
+
+        }
+
+
+        .remove-btn:hover {
+
+            background: #f3f4f6;
+
+        }
+
+
+        /* ================================
+           EMPTY WISHLIST
+        ================================= */
+
+        .empty-wishlist {
+
+            display: none;
+
+            max-width: 700px;
+
+            margin: auto;
+
+            text-align: center;
+
+            background: white;
+
+            padding: 70px 20px;
+
+            border-radius: 15px;
+
+            border: 1px solid #e5e7eb;
+
+        }
+
+
+        .empty-icon {
+
+            font-size: 70px;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .empty-wishlist h2 {
+
+            color: #374151;
+
+            margin-bottom: 8px;
+
+        }
+
+
+        .empty-wishlist p {
+
+            color: #64748b;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        .shop-btn {
+
+            display: inline-block;
+
+            background: #2563eb;
+
+            color: white;
+
+            padding: 12px 22px;
+
+            border-radius: 8px;
+
+            text-decoration: none;
+
+            font-weight: 600;
+
+        }
+
+
+        .shop-btn:hover {
+
+            background: #1d4ed8;
+
+        }
+
+
+        /* ================================
+           RESPONSIVE
+        ================================= */
+
+        @media(max-width: 1000px) {
+
+            .wishlist-grid {
+
+                grid-template-columns:
+                    repeat(3, 1fr);
+
+            }
+
+        }
+
+
+        @media(max-width: 750px) {
+
+            .wishlist-grid {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+
+            }
+
+        }
+
+
+        @media(max-width: 500px) {
+
+            .wishlist-page {
+
+                padding: 35px 5%;
+
+            }
+
+
+            .wishlist-title h1 {
+
+                font-size: 30px;
+
+            }
+
+
+            .wishlist-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .wishlist-header {
+
+                align-items: flex-start;
+
+                gap: 10px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+     HEADER
+========================================= -->
+
+<header class="header">
+
+    <div class="logo">
+
+        <span>⚡</span>
+
+        TechWorld
+
+    </div>
+
+
+    <nav class="navbar">
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="products.html">
+            Products
+        </a>
+
+        <a href="compare.html">
+            Compare
+        </a>
+
+        <a href="reviews.html">
+            Reviews
+        </a>
+
+        <a href="orders.html">
+            Orders
+        </a>
+
+        <a href="wishlist.html">
+            Wishlist
+        </a>
+
+    </nav>
+
+
+    <div class="header-buttons">
+
+        <a
+            href="cart.html"
+            class="cart-btn"
+        >
+
+            🛒 Cart
+
+            <span id="cart-count">
+                0
+            </span>
+
+        </a>
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================================
+     MAIN
+========================================= -->
+
+<main class="wishlist-page">
+
+
+    <!-- TITLE -->
+
+    <div class="wishlist-title">
+
+        <h1>
+
+            My
+            <span>Wishlist</span>
+
+        </h1>
+
+        <p>
+
+            Save your favorite products
+            for later.
+
+        </p>
+
+    </div>
+
+
+
+    <!-- HEADER -->
+
+    <div
+        class="wishlist-header"
+        id="wishlistHeader"
+    >
+
+        <div
+            class="wishlist-count"
+            id="wishlistCount"
+        >
+
+            0 products
+
+        </div>
+
+
+        <button
+            class="clear-wishlist-btn"
+            onclick="clearWishlist()"
+        >
+
+            🗑 Clear Wishlist
+
+        </button>
+
+    </div>
+
+
+
+    <!-- EMPTY -->
+
+    <div
+        class="empty-wishlist"
+        id="emptyWishlist"
+    >
+
+        <div class="empty-icon">
+            ❤️
+        </div>
+
+        <h2>
+            Your Wishlist is Empty
+        </h2>
+
+        <p>
+            Add products you love to your wishlist.
+        </p>
+
+        <a
+            href="products.html"
+            class="shop-btn"
+        >
+
+            Explore Products
+
+        </a>
+
+    </div>
+
+
+
+    <!-- GRID -->
+
+    <div
+        class="wishlist-grid"
+        id="wishlistGrid"
+    >
+
+    </div>
+
+
+</main>
+
+
+
+<!-- =========================================
+     FOOTER
+========================================= -->
+
+<footer class="footer">
+
+    <div class="footer-content">
+
+
+        <div>
+
+            <h2>
+                ⚡ TechWorld
+            </h2>
+
+            <p>
+                Your trusted electronics
+                and gadgets store.
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h3>
+                Quick Links
+            </h3>
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="products.html">
+                Products
+            </a>
+
+            <a href="compare.html">
+                Compare
+            </a>
+
+            <a href="reviews.html">
+                Reviews
+            </a>
+
+        </div>
+
+
+        <div>
+
+            <h3>
+                Contact
+            </h3>
+
+            <p>
+                📧 support@techworld.com
+            </p>
+
+            <p>
+                📞 +91 98765 43210
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="copyright">
+
+        <p>
+            © 2026 TechWorld.
+            All Rights Reserved.
+        </p>
+
+    </div>
+
+</footer>
+
+
+
+<!-- =========================================
+     JAVASCRIPT
+========================================= -->
+
+<script src="script.js"></script>
+
+
+<script>
+
+
+/* =========================================
+   GET WISHLIST
+========================================= */
+
+function getWishlist() {
+
+    return JSON.parse(
+
+        localStorage.getItem(
+            "techWorldWishlist"
+        )
+
+    ) || [];
+
+}
+
+
+
+/* =========================================
+   SAVE WISHLIST
+========================================= */
+
+function saveWishlist(wishlist) {
+
+    localStorage.setItem(
+
+        "techWorldWishlist",
+
+        JSON.stringify(wishlist)
+
+    );
+
+}
+
+
+
+/* =========================================
+   GET PRODUCT ICON
+========================================= */
+
+function getProductIcon(category) {
+
+
+    if (!category) {
+
+        return "📦";
+
+    }
+
+
+    const name =
+        category.toLowerCase();
+
+
+    if (
+        name.includes("phone") ||
+        name.includes("smartphone")
+    ) {
+
+        return "📱";
+
+    }
+
+
+    if (
+        name.includes("laptop")
+    ) {
+
+        return "💻";
+
+    }
+
+
+    if (
+        name.includes("headphone") ||
+        name.includes("earbud")
+    ) {
+
+        return "🎧";
+
+    }
+
+
+    if (
+        name.includes("watch")
+    ) {
+
+        return "⌚";
+
+    }
+
+
+    if (
+        name.includes("tablet")
+    ) {
+
+        return "📱";
+
+    }
+
+
+    if (
+        name.includes("camera")
+    ) {
+
+        return "📷";
+
+    }
+
+
+    return "📦";
+
+}
+
+
+
+/* =========================================
+   DISPLAY WISHLIST
+========================================= */
+
+function displayWishlist() {
+
+
+    const wishlist =
+        getWishlist();
+
+
+    const grid =
+        document.getElementById(
+            "wishlistGrid"
+        );
+
+
+    const empty =
+        document.getElementById(
+            "emptyWishlist"
+        );
+
+
+    const header =
+        document.getElementById(
+            "wishlistHeader"
+        );
+
+
+    const count =
+        document.getElementById(
+            "wishlistCount"
+        );
+
+
+    /* EMPTY */
+
+    if (wishlist.length === 0) {
+
+        grid.innerHTML = "";
+
+        empty.style.display =
+            "block";
+
+        header.style.display =
+            "none";
+
+        return;
+
+    }
+
+
+    empty.style.display =
+        "none";
+
+    header.style.display =
+        "flex";
+
+
+    count.textContent =
+
+        wishlist.length +
+
+        (
+            wishlist.length === 1
+            ? " product"
+            : " products"
+        );
+
+
+    grid.innerHTML = "";
+
+
+    /* CREATE CARDS */
+
+    wishlist.forEach(
+        function(product, index) {
+
+
+            const card =
+                document.createElement(
+                    "div"
+                );
+
+
+            card.className =
+                "wishlist-card";
+
+
+            const price =
+                Number(
+                    product.price
+                ) || 0;
+
+
+            card.innerHTML = `
+
+                <div class="wishlist-image">
+
+                    ${getProductIcon(
+                        product.category
+                    )}
+
+
+                    <button
+                        class="wishlist-heart"
+                        onclick="removeFromWishlist(
+                            ${index}
+                        )"
+                        title="Remove from wishlist"
+                    >
+
+                        ♥️
+
+                    </button>
+
+                </div>
+
+
+                <div class="wishlist-info">
+
+                    <div class="wishlist-category">
+
+                        ${escapeHTML(
+                            product.category ||
+                            "Electronics"
+                        )}
+
+                    </div>
+
+
+                    <div class="wishlist-name">
+
+                        ${escapeHTML(
+                            product.name
+                        )}
+
+                    </div>
+
+
+                    <div class="wishlist-description">
+
+                        ${escapeHTML(
+                            product.description ||
+                            "Quality technology product from TechWorld."
+                        )}
+
+                    </div>
+
+
+                    <div class="wishlist-price">
+
+                        ₹${price.toLocaleString(
+                            "en-IN"
+                        )}
+
+                    </div>
+
+
+                    <div class="wishlist-buttons">
+
+                        <button
+                            class="add-cart-btn"
+                            onclick="addToCart(
+                                ${index}
+                            )"
+                        >
+
+                            🛒 Add to Cart
+
+                        </button>
+
+
+                        <button
+                            class="remove-btn"
+                            onclick="removeFromWishlist(
+                                ${index}
+                            )"
+                        >
+
+                            Remove
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            `;
+
+
+            grid.appendChild(card);
+
+        }
+    );
+
+}
+
+
+
+/* =========================================
+   REMOVE FROM WISHLIST
+========================================= */
+
+function removeFromWishlist(index) {
+
+
+    const wishlist =
+        getWishlist();
+
+
+    wishlist.splice(
+        index,
+        1
+    );
+
+
+    saveWishlist(
+        wishlist
+    );
+
+
+    displayWishlist();
+
+}
+
+
+
+/* =========================================
+   CLEAR WISHLIST
+========================================= */
+
+function clearWishlist() {
+
+
+    const wishlist =
+        getWishlist();
+
+
+    if (
+        wishlist.length === 0
+    ) {
+
+        return;
+
+    }
+
+
+    const confirmation =
+        confirm(
+            "Are you sure you want to clear your wishlist?"
+        );
+
+
+    if (!confirmation) {
+
+        return;
+
+    }
+
+
+    localStorage.removeItem(
+        "techWorldWishlist"
+    );
+
+
+    displayWishlist();
+
+
+    alert(
+        "Wishlist cleared successfully."
+    );
+
+}
+
+
+
+/* =========================================
+   ADD TO CART
+========================================= */
+
+function addToCart(index) {
+
+
+    const wishlist =
+        getWishlist();
+
+
+    const product =
+        wishlist[index];
+
+
+    if (!product) {
+
+        return;
+
+    }
+
+
+    let cart =
+        JSON.parse(
+
+            localStorage.getItem(
+                "techWorldCart"
+            )
+
+        ) || [];
+
+
+    /* CHECK IF PRODUCT ALREADY EXISTS */
+
+    const existing =
+        cart.find(
+            function(item) {
+
+                return (
+                    item.name ===
+                    product.name
+                );
+
+            }
+        );
+
+
+    if (existing) {
+
+        existing.quantity =
+            (
+                Number(
+                    existing.quantity
+                ) || 1
+            ) + 1;
+
+    } else {
+
+        cart.push({
+
+            name:
+                product.name,
+
+            price:
+                Number(
+                    product.price
+                ) || 0,
+
+            category:
+                product.category ||
+                "Electronics",
+
+            description:
+                product.description ||
+                "",
+
+            quantity:
+                1
+
+        });
+
+    }
+
+
+    localStorage.setItem(
+
+        "techWorldCart",
+
+        JSON.stringify(cart)
+
+    );
+
+
+    updateCartCount();
+
+
+    alert(
+        product.name +
+        " added to cart!"
+    );
+
+}
+
+
+
+/* =========================================
+   UPDATE CART COUNT
+========================================= */
+
+function updateCartCount() {
+
+
+    const cart =
+        JSON.parse(
+
+            localStorage.getItem(
+                "techWorldCart"
+            )
+
+        ) || [];
+
+
+    let count = 0;
+
+
+    cart.forEach(
+        function(item) {
+
+            count +=
+                Number(
+                    item.quantity
+                ) || 1;
+
+        }
+    );
+
+
+    const cartCount =
+        document.getElementById(
+            "cart-count"
+        );
+
+
+    if (cartCount) {
+
+        cartCount.textContent =
+            count;
+
+    }
+
+}
+
+
+
+/* =========================================
+   ESCAPE HTML
+========================================= */
+
+function escapeHTML(text) {
+
+
+    const div =
+        document.createElement(
+            "div"
+        );
+
+
+    div.textContent =
+        text;
+
+
+    return div.innerHTML;
+
+}
+
+
+
+/* =========================================
+   LOAD PAGE
+========================================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function() {
+
+        displayWishlist();
+
+        updateCartCount();
+
+    }
+);
+
+</script>
+
+
+</body>
+
+</html>

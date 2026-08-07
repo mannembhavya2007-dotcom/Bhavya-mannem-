@@ -1,0 +1,1379 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="TechWorld My Orders">
+
+    <title>My Orders - TechWorld</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        /* ================================
+           ORDERS PAGE
+        ================================= */
+
+        .orders-page {
+
+            min-height: 100vh;
+
+            background: #f8fafc;
+
+            padding: 50px 7%;
+
+        }
+
+
+        /* ================================
+           TITLE
+        ================================= */
+
+        .orders-title {
+
+            text-align: center;
+
+            margin-bottom: 35px;
+
+        }
+
+
+        .orders-title h1 {
+
+            font-size: 40px;
+
+            color: #111827;
+
+            margin-bottom: 8px;
+
+        }
+
+
+        .orders-title h1 span {
+
+            color: #2563eb;
+
+        }
+
+
+        .orders-title p {
+
+            color: #64748b;
+
+        }
+
+
+        /* ================================
+           ORDERS CONTAINER
+        ================================= */
+
+        .orders-container {
+
+            max-width: 1000px;
+
+            margin: auto;
+
+        }
+
+
+        /* ================================
+           ORDER CARD
+        ================================= */
+
+        .order-card {
+
+            background: white;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 15px;
+
+            margin-bottom: 25px;
+
+            overflow: hidden;
+
+        }
+
+
+        /* ================================
+           ORDER HEADER
+        ================================= */
+
+        .order-header {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            padding: 20px;
+
+            background: #f8fafc;
+
+            border-bottom:
+                1px solid #e5e7eb;
+
+        }
+
+
+        .order-id {
+
+            font-weight: 700;
+
+            color: #111827;
+
+            margin-bottom: 5px;
+
+        }
+
+
+        .order-date {
+
+            color: #64748b;
+
+            font-size: 13px;
+
+        }
+
+
+        /* ================================
+           STATUS
+        ================================= */
+
+        .order-status {
+
+            display: inline-block;
+
+            padding: 7px 12px;
+
+            border-radius: 20px;
+
+            background: #dcfce7;
+
+            color: #15803d;
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+        }
+
+
+        /* ================================
+           PRODUCTS
+        ================================= */
+
+        .order-products {
+
+            padding: 5px 20px;
+
+        }
+
+
+        .order-product {
+
+            display: grid;
+
+            grid-template-columns:
+                60px 1fr auto;
+
+            align-items: center;
+
+            gap: 15px;
+
+            padding: 15px 0;
+
+            border-bottom:
+                1px solid #f1f5f9;
+
+        }
+
+
+        .order-product:last-child {
+
+            border-bottom: none;
+
+        }
+
+
+        .product-icon {
+
+            width: 55px;
+
+            height: 55px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background: #f1f5f9;
+
+            border-radius: 9px;
+
+            font-size: 28px;
+
+        }
+
+
+        .product-name {
+
+            font-weight: 700;
+
+            color: #111827;
+
+            font-size: 14px;
+
+        }
+
+
+        .product-category {
+
+            color: #2563eb;
+
+            font-size: 12px;
+
+            margin-top: 4px;
+
+        }
+
+
+        .product-quantity {
+
+            color: #64748b;
+
+            font-size: 12px;
+
+            margin-top: 4px;
+
+        }
+
+
+        .product-price {
+
+            font-weight: 700;
+
+            color: #111827;
+
+        }
+
+
+        /* ================================
+           ORDER FOOTER
+        ================================= */
+
+        .order-footer {
+
+            padding: 20px;
+
+            border-top:
+                1px solid #e5e7eb;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+        }
+
+
+        .delivery-info {
+
+            color: #64748b;
+
+            font-size: 13px;
+
+        }
+
+
+        .delivery-info strong {
+
+            display: block;
+
+            color: #374151;
+
+            margin-bottom: 5px;
+
+        }
+
+
+        .order-total {
+
+            text-align: right;
+
+        }
+
+
+        .order-total-label {
+
+            color: #64748b;
+
+            font-size: 12px;
+
+        }
+
+
+        .order-total-price {
+
+            font-size: 22px;
+
+            font-weight: 700;
+
+            color: #111827;
+
+            margin-top: 4px;
+
+        }
+
+
+        /* ================================
+           EMPTY ORDERS
+        ================================= */
+
+        .empty-orders {
+
+            display: none;
+
+            text-align: center;
+
+            background: white;
+
+            padding: 70px 20px;
+
+            border-radius: 15px;
+
+            border: 1px solid #e5e7eb;
+
+        }
+
+
+        .empty-icon {
+
+            font-size: 70px;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .empty-orders h2 {
+
+            color: #374151;
+
+            margin-bottom: 8px;
+
+        }
+
+
+        .empty-orders p {
+
+            color: #64748b;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        .shop-btn {
+
+            display: inline-block;
+
+            background: #2563eb;
+
+            color: white;
+
+            padding: 12px 22px;
+
+            border-radius: 8px;
+
+            text-decoration: none;
+
+            font-weight: 600;
+
+        }
+
+
+        .shop-btn:hover {
+
+            background: #1d4ed8;
+
+        }
+
+
+        /* ================================
+           CLEAR ORDERS
+        ================================= */
+
+        .orders-actions {
+
+            display: flex;
+
+            justify-content: flex-end;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .clear-orders-btn {
+
+            border: 1px solid #dc2626;
+
+            background: white;
+
+            color: #dc2626;
+
+            padding: 9px 15px;
+
+            border-radius: 7px;
+
+            cursor: pointer;
+
+            font-weight: 600;
+
+            font-size: 12px;
+
+        }
+
+
+        .clear-orders-btn:hover {
+
+            background: #fef2f2;
+
+        }
+
+
+        /* ================================
+           RESPONSIVE
+        ================================= */
+
+        @media(max-width: 650px) {
+
+            .orders-page {
+
+                padding: 35px 5%;
+
+            }
+
+
+            .orders-title h1 {
+
+                font-size: 30px;
+
+            }
+
+
+            .order-header {
+
+                align-items: flex-start;
+
+                gap: 15px;
+
+            }
+
+
+            .order-product {
+
+                grid-template-columns:
+                    50px 1fr;
+
+            }
+
+
+            .product-icon {
+
+                width: 45px;
+
+                height: 45px;
+
+                font-size: 23px;
+
+            }
+
+
+            .product-price {
+
+                grid-column: 2;
+
+            }
+
+
+            .order-footer {
+
+                align-items: flex-start;
+
+                gap: 20px;
+
+            }
+
+
+            .order-total {
+
+                text-align: left;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+     HEADER
+========================================= -->
+
+<header class="header">
+
+    <div class="logo">
+
+        <span>⚡</span>
+
+        TechWorld
+
+    </div>
+
+
+    <nav class="navbar">
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="products.html">
+            Products
+        </a>
+
+        <a href="compare.html">
+            Compare
+        </a>
+
+        <a href="reviews.html">
+            Reviews
+        </a>
+
+        <a href="orders.html">
+            Orders
+        </a>
+
+    </nav>
+
+
+    <div class="header-buttons">
+
+        <a
+            href="cart.html"
+            class="cart-btn"
+        >
+
+            🛒 Cart
+
+            <span id="cart-count">
+                0
+            </span>
+
+        </a>
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================================
+     MAIN
+========================================= -->
+
+<main class="orders-page">
+
+
+    <!-- TITLE -->
+
+    <div class="orders-title">
+
+        <h1>
+
+            My
+            <span>Orders</span>
+
+        </h1>
+
+        <p>
+
+            View your TechWorld
+            order history.
+
+        </p>
+
+    </div>
+
+
+
+    <div class="orders-container">
+
+
+        <!-- ACTIONS -->
+
+        <div
+            class="orders-actions"
+            id="ordersActions"
+        >
+
+            <button
+                class="clear-orders-btn"
+                onclick="clearOrders()"
+            >
+
+                🗑 Clear Order History
+
+            </button>
+
+        </div>
+
+
+
+        <!-- EMPTY ORDERS -->
+
+        <div
+            class="empty-orders"
+            id="emptyOrders"
+        >
+
+            <div class="empty-icon">
+                📦
+            </div>
+
+            <h2>
+                No Orders Yet
+            </h2>
+
+            <p>
+                You haven't placed any orders.
+            </p>
+
+            <a
+                href="products.html"
+                class="shop-btn"
+            >
+
+                Start Shopping
+
+            </a>
+
+        </div>
+
+
+
+        <!-- ORDERS -->
+
+        <div id="ordersList">
+
+        </div>
+
+
+    </div>
+
+</main>
+
+
+
+<!-- =========================================
+     FOOTER
+========================================= -->
+
+<footer class="footer">
+
+    <div class="footer-content">
+
+
+        <div>
+
+            <h2>
+                ⚡ TechWorld
+            </h2>
+
+            <p>
+                Your trusted electronics
+                and gadgets store.
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h3>
+                Quick Links
+            </h3>
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="products.html">
+                Products
+            </a>
+
+            <a href="compare.html">
+                Compare
+            </a>
+
+            <a href="reviews.html">
+                Reviews
+            </a>
+
+        </div>
+
+
+        <div>
+
+            <h3>
+                Contact
+            </h3>
+
+            <p>
+                📧 support@techworld.com
+            </p>
+
+            <p>
+                📞 +91 98765 43210
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="copyright">
+
+        <p>
+            © 2026 TechWorld.
+            All Rights Reserved.
+        </p>
+
+    </div>
+
+</footer>
+
+
+
+<!-- =========================================
+     JAVASCRIPT
+========================================= -->
+
+<script src="script.js"></script>
+
+
+<script>
+
+
+/* =========================================
+   GET ORDERS
+========================================= */
+
+function getOrders() {
+
+    return JSON.parse(
+
+        localStorage.getItem(
+            "techWorldOrders"
+        )
+
+    ) || [];
+
+}
+
+
+
+/* =========================================
+   GET PRODUCT ICON
+========================================= */
+
+function getProductIcon(category) {
+
+
+    if (!category) {
+
+        return "📦";
+
+    }
+
+
+    const name =
+        category.toLowerCase();
+
+
+    if (
+        name.includes("phone") ||
+        name.includes("smartphone")
+    ) {
+
+        return "📱";
+
+    }
+
+
+    if (
+        name.includes("laptop")
+    ) {
+
+        return "💻";
+
+    }
+
+
+    if (
+        name.includes("headphone") ||
+        name.includes("earbud")
+    ) {
+
+        return "🎧";
+
+    }
+
+
+    if (
+        name.includes("watch")
+    ) {
+
+        return "⌚";
+
+    }
+
+
+    if (
+        name.includes("tablet")
+    ) {
+
+        return "📱";
+
+    }
+
+
+    return "📦";
+
+}
+
+
+
+/* =========================================
+   FORMAT DATE
+========================================= */
+
+function formatDate(dateString) {
+
+
+    const date =
+        new Date(dateString);
+
+
+    if (
+        isNaN(
+            date.getTime()
+        )
+    ) {
+
+        return "Date unavailable";
+
+    }
+
+
+    return date.toLocaleDateString(
+        "en-IN",
+        {
+
+            day: "2-digit",
+
+            month: "short",
+
+            year: "numeric"
+
+        }
+    );
+
+}
+
+
+
+/* =========================================
+   DISPLAY ORDERS
+========================================= */
+
+function displayOrders() {
+
+
+    const orders =
+        getOrders();
+
+
+    const ordersList =
+        document.getElementById(
+            "ordersList"
+        );
+
+
+    const emptyOrders =
+        document.getElementById(
+            "emptyOrders"
+        );
+
+
+    const actions =
+        document.getElementById(
+            "ordersActions"
+        );
+
+
+    /* EMPTY */
+
+    if (orders.length === 0) {
+
+        ordersList.innerHTML = "";
+
+        emptyOrders.style.display =
+            "block";
+
+        actions.style.display =
+            "none";
+
+        return;
+
+    }
+
+
+    emptyOrders.style.display =
+        "none";
+
+    actions.style.display =
+        "flex";
+
+
+    ordersList.innerHTML = "";
+
+
+    /* CREATE ORDER CARDS */
+
+    orders.forEach(function(order) {
+
+
+        const card =
+            document.createElement(
+                "div"
+            );
+
+
+        card.className =
+            "order-card";
+
+
+        /* PRODUCTS */
+
+        let productsHTML = "";
+
+
+        if (
+            Array.isArray(
+                order.products
+            )
+        ) {
+
+
+            order.products.forEach(
+                function(product) {
+
+
+                    const price =
+                        Number(
+                            product.price
+                        ) || 0;
+
+
+                    const quantity =
+                        Number(
+                            product.quantity
+                        ) || 1;
+
+
+                    const total =
+                        price * quantity;
+
+
+                    productsHTML += `
+
+                        <div class="order-product">
+
+                            <div class="product-icon">
+
+                                ${getProductIcon(
+                                    product.category
+                                )}
+
+                            </div>
+
+
+                            <div>
+
+                                <div class="product-name">
+
+                                    ${escapeHTML(
+                                        product.name
+                                    )}
+
+                                </div>
+
+
+                                <div class="product-category">
+
+                                    ${escapeHTML(
+                                        product.category ||
+                                        "Electronics"
+                                    )}
+
+                                </div>
+
+
+                                <div class="product-quantity">
+
+                                    Quantity:
+                                    ${quantity}
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="product-price">
+
+                                ₹${total.toLocaleString(
+                                    "en-IN"
+                                )}
+
+                            </div>
+
+                        </div>
+
+                    `;
+
+                }
+            );
+
+        }
+
+
+        /* CUSTOMER */
+
+        const customer =
+            order.customer || {};
+
+
+        const address =
+            order.address || {};
+
+
+        const customerName =
+
+            (
+                customer.firstName || ""
+            ) +
+
+            " " +
+
+            (
+                customer.lastName || ""
+            );
+
+
+        const deliveryAddress =
+
+            (
+                address.city || ""
+            ) +
+
+            ", " +
+
+            (
+                address.state || ""
+            ) +
+
+            " - " +
+
+            (
+                address.pincode || ""
+            );
+
+
+        card.innerHTML = `
+
+
+            <!-- ORDER HEADER -->
+
+            <div class="order-header">
+
+                <div>
+
+                    <div class="order-id">
+
+                        Order ID:
+                        ${escapeHTML(
+                            order.id ||
+                            "N/A"
+                        )}
+
+                    </div>
+
+
+                    <div class="order-date">
+
+                        Ordered on:
+                        ${formatDate(
+                            order.date
+                        )}
+
+                    </div>
+
+                </div>
+
+
+                <div class="order-status">
+
+                    ✓
+                    ${escapeHTML(
+                        order.status ||
+                        "Order Placed"
+                    )}
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PRODUCTS -->
+
+            <div class="order-products">
+
+                ${productsHTML}
+
+            </div>
+
+
+
+            <!-- ORDER FOOTER -->
+
+            <div class="order-footer">
+
+                <div class="delivery-info">
+
+                    <strong>
+                        📍 Delivery Address
+                    </strong>
+
+                    ${escapeHTML(
+                        customerName.trim()
+                    )}
+
+                    <br>
+
+                    ${escapeHTML(
+                        deliveryAddress
+                    )}
+
+                    <br>
+
+                    Payment:
+                    ${escapeHTML(
+                        order.payment ||
+                        "Not specified"
+                    )}
+
+                </div>
+
+
+                <div class="order-total">
+
+                    <div class="order-total-label">
+
+                        Total Amount
+
+                    </div>
+
+
+                    <div class="order-total-price">
+
+                        ₹${Number(
+                            order.total || 0
+                        ).toLocaleString(
+                            "en-IN"
+                        )}
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        `;
+
+
+        ordersList.appendChild(card);
+
+    });
+
+}
+
+
+
+/* =========================================
+   CLEAR ORDERS
+========================================= */
+
+function clearOrders() {
+
+
+    const orders =
+        getOrders();
+
+
+    if (orders.length === 0) {
+
+        return;
+
+    }
+
+
+    const confirmation =
+        confirm(
+
+            "Are you sure you want to delete all your order history?"
+
+        );
+
+
+    if (!confirmation) {
+
+        return;
+
+    }
+
+
+    localStorage.removeItem(
+        "techWorldOrders"
+    );
+
+
+    displayOrders();
+
+
+    alert(
+        "Order history cleared successfully."
+    );
+
+}
+
+
+
+/* =========================================
+   ESCAPE HTML
+========================================= */
+
+function escapeHTML(text) {
+
+
+    const div =
+        document.createElement(
+            "div"
+        );
+
+
+    div.textContent =
+        text;
+
+
+    return div.innerHTML;
+
+}
+
+
+
+/* =========================================
+   CART COUNT
+========================================= */
+
+function updateCartCount() {
+
+
+    const cart = JSON.parse(
+
+        localStorage.getItem(
+            "techWorldCart"
+        )
+
+    ) || [];
+
+
+    let count = 0;
+
+
+    cart.forEach(function(item) {
+
+        count +=
+            Number(
+                item.quantity
+            ) || 1;
+
+    });
+
+
+    const element =
+        document.getElementById(
+            "cart-count"
+        );
+
+
+    if (element) {
+
+        element.textContent =
+            count;
+
+    }
+
+}
+
+
+
+/* =========================================
+   LOAD PAGE
+========================================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function() {
+
+        displayOrders();
+
+        updateCartCount();
+
+    }
+);
+
+</script>
+
+
+</body>
+
+</html>

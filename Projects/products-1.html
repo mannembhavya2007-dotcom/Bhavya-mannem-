@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="TechWorld Electronics Products">
+
+    <title>Products - TechWorld</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        /* =========================================
+           PRODUCTS PAGE
+        ========================================= */
+
+        .products-header {
+            background: linear-gradient(
+                135deg,
+                #eff6ff,
+                #ffffff
+            );
+
+            text-align: center;
+
+            padding: 60px 5%;
+        }
+
+        .products-header h1 {
+            font-size: 42px;
+            color: #111827;
+            margin-bottom: 10px;
+        }
+
+        .products-header h1 span {
+            color: #2563eb;
+        }
+
+        .products-header p {
+            color: #64748b;
+            font-size: 17px;
+        }
+
+
+        /* =========================================
+           SEARCH & FILTER
+        ========================================= */
+
+        .product-controls {
+            width: 86%;
+
+            margin: 40px auto;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            gap: 15px;
+
+            flex-wrap: wrap;
+        }
+
+
+        .search-box {
+            flex: 1;
+
+            min-width: 250px;
+
+            position: relative;
+        }
+
+
+        .search-box input {
+            width: 100%;
+
+            padding: 14px 18px;
+
+            border: 1px solid #d1d5db;
+
+            border-radius: 10px;
+
+            outline: none;
+
+            font-size: 15px;
+        }
+
+
+        .search-box input:focus {
+            border-color: #2563eb;
+
+            box-shadow:
+                0 0 0 3px
+                rgba(37, 99, 235, 0.1);
+        }
+
+
+        .filter-buttons {
+            display: flex;
+
+            gap: 8px;
+
+            flex-wrap: wrap;
+        }
+
+
+        .filter-btn {
+            border: 1px solid #d1d5db;
+
+            background: white;
+
+            color: #374151;
+
+            padding: 10px 15px;
+
+            border-radius: 8px;
+
+            font-weight: 600;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: #2563eb;
+
+            color: white;
+
+            border-color: #2563eb;
+        }
+
+
+        .sort-box select {
+            padding: 11px 14px;
+
+            border-radius: 8px;
+
+            border: 1px solid #d1d5db;
+
+            outline: none;
+
+            background: white;
+
+            font-size: 14px;
+        }
+
+
+        /* =========================================
+           PRODUCTS GRID
+        ========================================= */
+
+        .products-section {
+            width: 86%;
+
+            margin: 0 auto 70px;
+        }
+
+
+        .products-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 25px;
+        }
+
+
+        /* =========================================
+           PRODUCT CARD
+        ========================================= */
+
+        .store-product {
+
+            position: relative;
+
+            background: white;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 15px;
+
+            padding: 18px;
+
+            overflow: hidden;
+
+            transition: 0.3s;
+        }
+
+
+        .store-product:hover {
+
+            transform:
+                translateY(-7px);
+
+            box-shadow:
+                0 15px 35px
+                rgba(0, 0, 0, 0.09);
+        }
+
+
+        .store-product-image {
+
+            height: 210px;
+
+            border-radius: 12px;
+
+            background: #f1f5f9;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            font-size: 90px;
+
+            margin-bottom: 18px;
+        }
+
+
+        .store-product .badge {
+
+            position: absolute;
+
+            top: 28px;
+
+            left: 28px;
+
+            background: #2563eb;
+
+            color: white;
+
+            padding: 5px 10px;
+
+            border-radius: 20px;
+
+            font-size: 11px;
+
+            font-weight: bold;
+        }
+
+
+        .store-product h3 {
+
+            color: #1f2937;
+
+            font-size: 18px;
+
+            margin-bottom: 7px;
+        }
+
+
+        .store-product .category-name {
+
+            color: #2563eb;
+
+            font-size: 12px;
+
+            font-weight: bold;
+
+            margin-bottom: 8px;
+
+            text-transform: uppercase;
+        }
+
+
+        .store-product .description {
+
+            color: #64748b;
+
+            font-size: 13px;
+
+            min-height: 60px;
+        }
+
+
+        .spec-list {
+
+            margin: 12px 0;
+
+            padding: 10px;
+
+            background: #f8fafc;
+
+            border-radius: 8px;
+        }
+
+
+        .spec-list p {
+
+            font-size: 12px;
+
+            color: #475569;
+
+            margin: 3px 0;
+        }
+
+
+        .spec-list strong {
+
+            color: #1f2937;
+        }
+
+
+        .store-rating {
+
+            color: #f59e0b;
+
+            font-size: 14px;
+
+            margin: 8px 0;
+        }
+
+
+        .store-rating span {
+
+            color: #94a3b8;
+
+            font-size: 12px;
+        }
+
+
+        .price-row {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            margin-top: 15px;
+
+            gap: 8px;
+        }
+
+
+        .price {
+
+            font-size: 20px;
+
+            font-weight: bold;
+
+            color: #111827;
+        }
+
+
+        .add-cart {
+
+            background: #2563eb;
+
+            border: none;
+
+            color: white;
+
+            padding: 9px 11px;
+
+            border-radius: 7px;
+
+            font-size: 12px;
+
+            font-weight: 600;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+
+        .add-cart:hover {
+
+            background: #1d4ed8;
+        }
+
+
+        .compare-btn {
+
+            width: 100%;
+
+            margin-top: 10px;
+
+            padding: 9px;
+
+            border: 1px solid #2563eb;
+
+            background: white;
+
+            color: #2563eb;
+
+            border-radius: 7px;
+
+            font-weight: 600;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+
+        .compare-btn:hover {
+
+            background: #2563eb;
+
+            color: white;
+        }
+
+
+        /* =========================================
+           NO RESULTS
+        ========================================= */
+
+        #noResults {
+
+            display: none;
+
+            text-align: center;
+
+            padding: 50px;
+
+            color: #64748b;
+        }
+
+
+        #noResults h2 {
+
+            color: #374151;
+
+            margin-bottom: 8px;
+        }
+
+
+        /* =========================================
+           RESPONSIVE
+        ========================================= */
+
+        @media (max-width: 1100px) {
+
+            .products-grid {
+
+                grid-template-columns:
+                    repeat(3, 1fr);
+            }
+
+        }
+
+
+        @media (max-width: 800px) {
+
+            .products-grid {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .products-header {
+
+                padding: 45px 5%;
+            }
+
+            .products-header h1 {
+
+                font-size: 32px;
+            }
+
+            .product-controls {
+
+                width: 90%;
+
+                flex-direction: column;
+
+                align-items: stretch;
+            }
+
+            .filter-buttons {
+
+                justify-content: center;
+            }
+
+            .sort-box select {
+
+                width: 100%;
+            }
+
+            .products-section {
+
+                width: 90%;
+            }
+
+            .products-grid {
+
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- ==================================================
+     HEADER
+================================================== -->
+
+<header class="header">
+
+    <div class="logo">
+
+        <span>⚡</span>
+
+        TechWorld
+
+    </div>
+
+
+    <nav class="navbar">
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="products.html">
+            Products
+        </a>
+
+        <a href="compare.html">
+            Compare
+        </a>
+
+        <a href="reviews.html">
+            Reviews
+        </a>
+
+        <a href="orders.html">
+            Orders
+        </a>
+
+    </nav>
+
+
+    <div class="header-buttons">
+
+        <a
+            href="cart.html"
+            class="cart-btn"
+        >
+
+            🛒 Cart
+
+            <span id="cart-count">
+                0
+            </span>
+
+        </a>
+
+    </div>
+
+</header>
+
+
+
+<!-- ==================================================
+     PAGE HEADER
+================================================== -->
+
+<section class="products-header">
+
+    <h1>
+
+        Explore Our
+        <span>Products</span>
+
+    </h1>
+
+    <p>
+
+        Discover the latest electronics
+        and smart gadgets.
+
+    </p>
+
+</section>
+
+
+
+<!-- ==================================================
+     SEARCH & FILTER
+================================================== -->
+
+<div class="product-controls">
+
+
+    <!-- SEARCH -->
+
+    <div class="search-box">
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="🔍 Search products..."
+            onkeyup="searchStoreProducts()"
+        >
+
+    </div>
+
+
+    <!-- CATEGORY FILTER -->
+
+    <div class="filter-buttons">
+
+        <button
+            class="filter-btn active"
+            onclick="filterStoreProducts('all', this)"
+        >
+            All
+        </button>
+
+
+        <button
+            class="filter-btn"
+            onclick="filterStoreProducts('smartphone', this)"
+        >
+            📱 Smartphones
+        </button>
+
+
+        <button
+            class="filter-btn"
+            onclick="filterStoreProducts('laptop', this)"
+        >
+            💻 Laptops
+        </button>
+
+
+        <button
+            class="filter-btn"
+            onclick="filterStoreProducts('headphone', this)"
+        >
+            🎧 Headphones
+        </button>
+
+
+        <button
+            class="filter-btn"
+            onclick="filterStoreProducts('watch', this)"
+        >
+            ⌚ Watches
+        </button>
+
+    </div>
+
+
+    <!-- SORT -->
+
+    <div class="sort-box">
+
+        <select
+            onchange="sortStoreProducts(this.value)"
+        >
+
+            <option value="default">
+                Sort Products
+            </option>
+
+            <option value="low">
+                Price: Low to High
+            </option>
+
+            <option value="high">
+                Price: High to Low
+            </option>
+
+        </select>
+
+    </div>
+
+</div>
+
+
+
+<!-- ==================================================
+     PRODUCTS
+================================================== -->
+
+<section class="products-section">
+
+
+    <div
+        class="products-grid"
+        id="productsGrid"
+    >
+
+
+        <!-- ==========================================
+             PRODUCT 1
+        =========================================== -->
+
+        <div
+            class="store-product"
+            data-category="smartphone"
+            data-price="29999"
+        >
+
+            <span class="badge">
+                New
+            </span>
+
+
+            <div class="store-product-image">
+                📱
+            </div>
+
+
+            <p class="category-name">
+                Smartphone
+            </p>
+
+
+            <h3>
+                TechWorld X1
+            </h3>
+
+
+            <p class="description">
+
+                Powerful smartphone with
+                advanced camera and premium
+                display.
+
+            </p>
+
+
+            <div class="spec-list">
+
+                <p>
+                    <strong>Display:</strong>
+                    6.7" AMOLED
+                </p>
+
+                <p>
+                    <strong>RAM:</strong>
+                    8 GB
+                </p>
+
+                <p>
+                    <strong>Storage:</strong>
+                    128 GB
+                </p>
+
+                <p>
+                    <strong>Camera:</strong>
+                    50 MP
+                </p>
+
+            </div>
+
+
+            <div class="store-rating">
+
+                ⭐⭐⭐⭐⭐
+
+                <span>
+                    (125 reviews)
+                </span>
+
+            </div>
+
+
+            <div class="price-row">
+
+                <span class="price">
+                    ₹29,999
+                </span>
+
+
+                <button
+                    class="add-cart"
+                    onclick="addToCart('TechWorld X1', 29999)"
+                >
+                    Add to Cart
+                </button>
+
+            </div>
+
+
+            <button
+                class="compare-btn"
+                onclick="addToCompare({
+                    name:'TechWorld X1',
+                    price:29999,
+                    category:'Smartphone',
+                    display:'6.7 AMOLED',
+                    ram:'8 GB',
+                    storage:'128 GB',
+                    camera:'50 MP'
+                })"
+            >
+                📊 Add to Compare
+            </button>
+
+        </div>
+
+
+
+        <!-- ==========================================
+             PRODUCT 2
+        =========================================== -->
+
+        <div
+            class="store-product"
+            data-category="smartphone"
+            data-price="39999"
+        >
+
+            <span class="badge">
+                Popular
+            </span>
+
+
+            <div class="store-product-image">
+                📱
+            </div>
+
+
+            <p class="category-name">
+                Smartphone
+            </p>
+
+
+            <h3>
+                TechWorld X Pro
+            </h3>
+
+
+            <p class="description">
+
+                Premium smartphone with
+                high-speed processor and
+                professional camera.
+
+            </p>
+
+
+            <div class="spec-list">
+
+                <p>
+                    <strong>Display:</strong>
+                    6.8" AMOLED
+                </p>
+
+                <p>
+                    <strong>RAM:</strong>
+                    12 GB
+                </p>
+
+                <p>
+                    <strong>Storage:</strong>
+                    256 GB
+                </p>
+
+                <p>
+                    <strong>Camera:</strong>
+                    108 MP
+                </p>
+
+            </div>
+
+
+            <div class="store-rating">
+
+                ⭐⭐⭐⭐⭐
+
+                <span>
+                    (98 reviews)
+                </span>
+
+            </div>
+
+
+            <div class="price-row">
+
+                <span class="price">
+                    ₹39,999
+                </span>
+
+
+                <button
+                    class="add-cart"
+                    onclick="addToCart('TechWorld X Pro', 39999)"
+                >
+                    Add to Cart
+                </button>
+
+            </div>
+
+
+            <button
+                class="compare-btn"
+                onclick="addToCompare({
+                    name:'TechWorld X Pro',
+                    price:39999,
+                    category:'Smartphone',
+                    display:'6.8 AMOLED',
+                    ram:'12 GB',
+                    storage:'256 GB',
+                    camera:'108 MP'
+                })"
+            >
+                📊 Add to Compare
+            </button>
+
+        </div>
+
+
+
+        <!-- ==========================================
+             PRODUCT 3
+        =========================================== -->
+
+        <div
+            class="store-product"
+            data-category="laptop"
+            data-price="59999"
+        >
+
+            <span class="badge">
+                Popular
+            </span>
+
+
+            <div class="store-product-image">
+                💻
+            </div>
+
+
+            <p class="category-name">
+                Laptop
+            </p>
+
+
+            <h3>
+                TechBook Pro
+            </h3>
+
+
+            <p class="description">
+
+                High-performance laptop
+                designed for students,
+                developers and professionals.
+
+            </p>
+
+
+            <div class="spec-list">
+
+                <p>
+                    <strong>Processor:</strong>
+                    Intel Core i5
+                </p>
+
+                <p>
+                    <strong>RAM:</strong>
+                    16 GB
+                </p>
+
+                <p>
+                    <strong>Storage:</strong>
+                    512 GB SSD
+                </p>
+
+                <p>
+                    <strong>Display:</strong>
+                    15.6" FHD
+                </p>
+
+            </div>
+
+
+            <div class="store-rating">
+
+                ⭐⭐⭐⭐⭐
+
+                <span>
+                    (145 reviews)
+                </span>
+
+            </div>
+
+
+            <div class="price-row">
+
+                <span class="price">
+                    ₹59,999
+                </span>
+
+
+                <button
+                    class="add-cart"
+                    onclick="addToCart('TechBook Pro', 59999)"
+                >
+                    Add to Cart
+                </button>
+
+            </div>
+
+
+            <button
+                class="compare-btn"
+                onclick="addToCompare({
+                    name:'TechBook Pro',
+                    price:59999,
+                    category:'Laptop',
+                    processor:'Intel Core i5',
+                    ram:'16 GB',
+                    storage:'512 GB SSD',
+                    display:'15.6 FHD'
+                })"
+            >
+                📊 Add to Compare
+            </button>
+
+        </div>
+
+
+
+        <!-- ==========================================
+             PRODUCT 4
+        =========================================== -->
+
+        <div
+            class="store-product"
+            data-category="laptop"
+            data-price="74999"
+        >
+
+            <span class="badge">
+                New
+            </span>
+
+
+            <div class="store-product-image">
+                💻
+            </div>
+
+
+            <p class="category-name">
+                Laptop
+            </p>
+
+
+            <h3>
+                TechBook Ultra
+            </h3>
+
+
+            <p class="description">
+
+                Ultra-fast laptop with
+                powerful processor and
+                large storage.
+
+            </p>
+
+
+            <div class="spec-list">
+
+                <p>
+                    <strong>Processor:</strong>
+                    Intel Core i7
+                </p>
+
+                <p>
+                    <strong>RAM:</strong>
+                    16 GB
+                </p>
+
+                <p>
+                    <strong>Storage:</strong>
+                    1 TB SSD
+                </p>
+
+                <p>
+                    <strong>Display:</strong>
+                    16" FHD+
+                </p>
+
+            </div>
+
+
+            <div class="store-rating">
+
+                ⭐⭐⭐⭐⭐
+
+                <span>
+                    (87 reviews)
+                </span>
+
+            </div>
+
+
+            <div class="price-row">
+
+                <span class="price">
+                    ₹74,999
+                </span>
+
+
+                <button
+                    class="add-cart"
+                    onclick="addToCart('TechBook Ultra', 74999)"
+                >
+                    Add to Cart
+                </button>
+
+            </div>
+
+
+            <button
+                class="compare-btn"
+                onclick="addToCompare({
+                    name:'TechBook Ultra',
+                    price:74999,
+                    category:'Laptop',

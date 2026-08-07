@@ -1,0 +1,1261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="Compare electronics and gadgets on TechWorld">
+
+    <title>Compare Products - TechWorld</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        /* =================================================
+           COMPARE PAGE
+        ================================================= */
+
+        .compare-page {
+
+            min-height: 100vh;
+
+            background: #f8fafc;
+
+            padding: 60px 7%;
+        }
+
+
+        /* =================================================
+           PAGE TITLE
+        ================================================= */
+
+        .compare-header {
+
+            text-align: center;
+
+            margin-bottom: 40px;
+        }
+
+
+        .compare-header p {
+
+            color: #2563eb;
+
+            font-size: 13px;
+
+            font-weight: bold;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 8px;
+        }
+
+
+        .compare-header h1 {
+
+            font-size: 40px;
+
+            color: #111827;
+
+            margin-bottom: 10px;
+        }
+
+
+        .compare-header h1 span {
+
+            color: #2563eb;
+        }
+
+
+        .compare-header .subtitle {
+
+            color: #64748b;
+
+            font-size: 16px;
+        }
+
+
+        /* =================================================
+           TOP BUTTONS
+        ================================================= */
+
+        .compare-actions {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            margin-bottom: 25px;
+
+            gap: 15px;
+
+            flex-wrap: wrap;
+        }
+
+
+        .back-products {
+
+            display: inline-block;
+
+            background: #2563eb;
+
+            color: white;
+
+            padding: 11px 18px;
+
+            border-radius: 8px;
+
+            font-size: 14px;
+
+            font-weight: 600;
+        }
+
+
+        .back-products:hover {
+
+            background: #1d4ed8;
+        }
+
+
+        .clear-compare {
+
+            border: 1px solid #dc2626;
+
+            background: white;
+
+            color: #dc2626;
+
+            padding: 10px 18px;
+
+            border-radius: 8px;
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+
+        .clear-compare:hover {
+
+            background: #dc2626;
+
+            color: white;
+        }
+
+
+        /* =================================================
+           COMPARE TABLE
+        ================================================= */
+
+        .compare-container {
+
+            background: white;
+
+            border-radius: 15px;
+
+            border: 1px solid #e5e7eb;
+
+            overflow-x: auto;
+
+            box-shadow:
+                0 10px 30px
+                rgba(0, 0, 0, 0.05);
+        }
+
+
+        .compare-table {
+
+            width: 100%;
+
+            min-width: 750px;
+
+            border-collapse: collapse;
+        }
+
+
+        .compare-table th,
+        .compare-table td {
+
+            padding: 18px;
+
+            border-bottom:
+                1px solid #e5e7eb;
+
+            text-align: center;
+
+            font-size: 14px;
+        }
+
+
+        /* Specification column */
+
+        .compare-table th:first-child,
+        .compare-table td:first-child {
+
+            width: 180px;
+
+            text-align: left;
+
+            background: #f8fafc;
+
+            font-weight: 700;
+
+            color: #374151;
+        }
+
+
+        /* Product headings */
+
+        .product-heading {
+
+            min-width: 190px;
+
+            color: #111827;
+
+            font-size: 17px;
+        }
+
+
+        .compare-product-icon {
+
+            width: 90px;
+
+            height: 90px;
+
+            margin: 0 auto 10px;
+
+            background: #f1f5f9;
+
+            border-radius: 12px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 50px;
+        }
+
+
+        .compare-product-name {
+
+            font-size: 17px;
+
+            font-weight: 700;
+
+            color: #1f2937;
+
+            margin-bottom: 5px;
+        }
+
+
+        .compare-category {
+
+            color: #2563eb;
+
+            font-size: 11px;
+
+            font-weight: bold;
+
+            text-transform: uppercase;
+        }
+
+
+        /* Remove product */
+
+        .remove-product {
+
+            margin-top: 10px;
+
+            border: none;
+
+            background: #fee2e2;
+
+            color: #dc2626;
+
+            padding: 6px 10px;
+
+            border-radius: 5px;
+
+            font-size: 11px;
+
+            cursor: pointer;
+        }
+
+
+        .remove-product:hover {
+
+            background: #dc2626;
+
+            color: white;
+        }
+
+
+        /* Price */
+
+        .compare-price {
+
+            color: #111827;
+
+            font-size: 20px;
+
+            font-weight: 700;
+        }
+
+
+        /* Rating */
+
+        .compare-rating {
+
+            color: #f59e0b;
+
+            font-size: 16px;
+        }
+
+
+        /* Highlight */
+
+        .best-value {
+
+            background: #f0fdf4;
+
+            color: #15803d;
+
+            font-weight: 700;
+        }
+
+
+        /* =================================================
+           EMPTY STATE
+        ================================================= */
+
+        .empty-compare {
+
+            display: none;
+
+            background: white;
+
+            text-align: center;
+
+            padding: 70px 20px;
+
+            border-radius: 15px;
+
+            border: 1px solid #e5e7eb;
+        }
+
+
+        .empty-icon {
+
+            font-size: 70px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .empty-compare h2 {
+
+            color: #374151;
+
+            margin-bottom: 8px;
+
+            font-size: 25px;
+        }
+
+
+        .empty-compare p {
+
+            color: #64748b;
+
+            margin-bottom: 25px;
+        }
+
+
+        /* =================================================
+           INFO BOX
+        ================================================= */
+
+        .comparison-info {
+
+            margin-top: 30px;
+
+            padding: 20px;
+
+            background: #eff6ff;
+
+            border: 1px solid #bfdbfe;
+
+            border-radius: 10px;
+
+            color: #1e40af;
+
+            font-size: 14px;
+        }
+
+
+        .comparison-info strong {
+
+            display: block;
+
+            margin-bottom: 5px;
+
+            font-size: 16px;
+        }
+
+
+        /* =================================================
+           RESPONSIVE
+        ================================================= */
+
+        @media (max-width: 700px) {
+
+            .compare-page {
+
+                padding: 45px 5%;
+            }
+
+
+            .compare-header h1 {
+
+                font-size: 31px;
+            }
+
+
+            .compare-actions {
+
+                flex-direction: column;
+
+                align-items: stretch;
+            }
+
+
+            .back-products,
+            .clear-compare {
+
+                text-align: center;
+
+                width: 100%;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="header">
+
+    <div class="logo">
+
+        <span>⚡</span>
+
+        TechWorld
+
+    </div>
+
+
+    <nav class="navbar">
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="products.html">
+            Products
+        </a>
+
+        <a href="compare.html">
+            Compare
+        </a>
+
+        <a href="reviews.html">
+            Reviews
+        </a>
+
+        <a href="orders.html">
+            Orders
+        </a>
+
+    </nav>
+
+
+    <div class="header-buttons">
+
+        <a
+            href="cart.html"
+            class="cart-btn"
+        >
+
+            🛒 Cart
+
+            <span id="cart-count">
+                0
+            </span>
+
+        </a>
+
+    </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     MAIN COMPARE PAGE
+===================================================== -->
+
+<main class="compare-page">
+
+
+    <!-- PAGE TITLE -->
+
+    <div class="compare-header">
+
+        <p>
+            PRODUCT COMPARISON
+        </p>
+
+        <h1>
+
+            Compare
+            <span>Products</span>
+
+        </h1>
+
+        <p class="subtitle">
+
+            Compare product specifications,
+            prices and features side by side.
+
+        </p>
+
+    </div>
+
+
+
+    <!-- ACTION BUTTONS -->
+
+    <div class="compare-actions">
+
+        <a
+            href="products.html"
+            class="back-products"
+        >
+
+            ← Browse Products
+
+        </a>
+
+
+        <button
+            class="clear-compare"
+            onclick="clearAllComparison()"
+        >
+
+            🗑 Clear Comparison
+
+        </button>
+
+    </div>
+
+
+
+    <!-- =================================================
+         EMPTY COMPARISON
+    ================================================= -->
+
+    <div
+        class="empty-compare"
+        id="emptyCompare"
+    >
+
+        <div class="empty-icon">
+            📊
+        </div>
+
+        <h2>
+            No Products to Compare
+        </h2>
+
+        <p>
+
+            Add products from the Products page
+            using the "Add to Compare" button.
+
+        </p>
+
+        <a
+            href="products.html"
+            class="back-products"
+        >
+
+            Browse Products
+
+        </a>
+
+    </div>
+
+
+
+    <!-- =================================================
+         COMPARISON TABLE
+    ================================================= -->
+
+    <div
+        class="compare-container"
+        id="compareContainer"
+    >
+
+        <table class="compare-table">
+
+            <thead>
+
+                <tr>
+
+                    <th>
+                        Specification
+                    </th>
+
+                    <th
+                        id="productHeader1"
+                        class="product-heading"
+                    >
+                    </th>
+
+                    <th
+                        id="productHeader2"
+                        class="product-heading"
+                    >
+                    </th>
+
+                    <th
+                        id="productHeader3"
+                        class="product-heading"
+                    >
+                    </th>
+
+                </tr>
+
+            </thead>
+
+
+            <tbody>
+
+
+                <!-- PRICE -->
+
+                <tr>
+
+                    <td>
+                        💰 Price
+                    </td>
+
+                    <td id="price1">
+                    </td>
+
+                    <td id="price2">
+                    </td>
+
+                    <td id="price3">
+                    </td>
+
+                </tr>
+
+
+                <!-- CATEGORY -->
+
+                <tr>
+
+                    <td>
+                        🏷 Category
+                    </td>
+
+                    <td id="category1">
+                    </td>
+
+                    <td id="category2">
+                    </td>
+
+                    <td id="category3">
+                    </td>
+
+                </tr>
+
+
+                <!-- DISPLAY -->
+
+                <tr>
+
+                    <td>
+                        🖥 Display
+                    </td>
+
+                    <td id="display1">
+                    </td>
+
+                    <td id="display2">
+                    </td>
+
+                    <td id="display3">
+                    </td>
+
+                </tr>
+
+
+                <!-- PROCESSOR -->
+
+                <tr>
+
+                    <td>
+                        ⚙️ Processor
+                    </td>
+
+                    <td id="processor1">
+                    </td>
+
+                    <td id="processor2">
+                    </td>
+
+                    <td id="processor3">
+                    </td>
+
+                </tr>
+
+
+                <!-- RAM -->
+
+                <tr>
+
+                    <td>
+                        🧠 RAM
+                    </td>
+
+                    <td id="ram1">
+                    </td>
+
+                    <td id="ram2">
+                    </td>
+
+                    <td id="ram3">
+                    </td>
+
+                </tr>
+
+
+                <!-- STORAGE -->
+
+                <tr>
+
+                    <td>
+                        💾 Storage
+                    </td>
+
+                    <td id="storage1">
+                    </td>
+
+                    <td id="storage2">
+                    </td>
+
+                    <td id="storage3">
+                    </td>
+
+                </tr>
+
+
+                <!-- CAMERA -->
+
+                <tr>
+
+                    <td>
+                        📸 Camera
+                    </td>
+
+                    <td id="camera1">
+                    </td>
+
+                    <td id="camera2">
+                    </td>
+
+                    <td id="camera3">
+                    </td>
+
+                </tr>
+
+
+                <!-- BATTERY -->
+
+                <tr>
+
+                    <td>
+                        🔋 Battery
+                    </td>
+
+                    <td id="battery1">
+                    </td>
+
+                    <td id="battery2">
+                    </td>
+
+                    <td id="battery3">
+                    </td>
+
+                </tr>
+
+
+                <!-- RATING -->
+
+                <tr>
+
+                    <td>
+                        ⭐ Rating
+                    </td>
+
+                    <td id="rating1">
+                    </td>
+
+                    <td id="rating2">
+                    </td>
+
+                    <td id="rating3">
+                    </td>
+
+                </tr>
+
+
+                <!-- REMOVE -->
+
+                <tr>
+
+                    <td>
+                        Action
+                    </td>
+
+                    <td id="remove1">
+                    </td>
+
+                    <td id="remove2">
+                    </td>
+
+                    <td id="remove3">
+                    </td>
+
+                </tr>
+
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+
+    <!-- INFORMATION -->
+
+    <div class="comparison-info">
+
+        <strong>
+            💡 Comparison Tip
+        </strong>
+
+        You can compare up to 3 products
+        at the same time. Add products from
+        the Products page and compare their
+        specifications side by side.
+
+    </div>
+
+
+</main>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="footer">
+
+    <div class="footer-content">
+
+
+        <div>
+
+            <h2>
+                ⚡ TechWorld
+            </h2>
+
+            <p>
+                Your trusted electronics
+                and gadgets store.
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h3>
+                Quick Links
+            </h3>
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="products.html">
+                Products
+            </a>
+
+            <a href="compare.html">
+                Compare
+            </a>
+
+            <a href="reviews.html">
+                Reviews
+            </a>
+
+        </div>
+
+
+        <div>
+
+            <h3>
+                Contact
+            </h3>
+
+            <p>
+                📧 support@techworld.com
+            </p>
+
+            <p>
+                📞 +91 98765 43210
+            </p>
+
+            <p>
+                📍 India
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="copyright">
+
+        <p>
+            © 2026 TechWorld.
+            All Rights Reserved.
+        </p>
+
+    </div>
+
+</footer>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script src="script.js"></script>
+
+
+<script>
+
+
+/* =====================================================
+   GET PRODUCTS FROM LOCAL STORAGE
+===================================================== */
+
+function getComparisonProducts() {
+
+    return JSON.parse(
+
+        localStorage.getItem(
+            "techWorldCompare"
+        )
+
+    ) || [];
+
+}
+
+
+
+/* =====================================================
+   DISPLAY COMPARISON
+===================================================== */
+
+function displayComparison() {
+
+
+    const products =
+        getComparisonProducts();
+
+
+    const container =
+        document.getElementById(
+            "compareContainer"
+        );
+
+
+    const empty =
+        document.getElementById(
+            "emptyCompare"
+        );
+
+
+    /*
+       If there are no products,
+       show empty message.
+    */
+
+    if (products.length === 0) {
+
+        container.style.display =
+            "none";
+
+        empty.style.display =
+            "block";
+
+        return;
+
+    }
+
+
+    container.style.display =
+        "block";
+
+    empty.style.display =
+        "none";
+
+
+    /*
+       Fill three product columns.
+    */
+
+    for (
+        let i = 1;
+        i <= 3;
+        i++
+    ) {
+
+        clearColumn(i);
+
+    }
+
+
+    products.forEach(function(product, index) {
+
+        const column =
+            index + 1;
+
+
+        /* Product header */
+
+        document.getElementById(
+            "productHeader" + column
+        ).innerHTML = `
+
+            <div class="compare-product-icon">
+
+                ${getProductIcon(product.category)}
+
+            </div>
+
+            <div class="compare-product-name">
+
+                ${product.name}
+
+            </div>
+
+            <div class="compare-category">
+
+                ${product.category || "Electronics"}
+
+            </div>
+
+        `;
+
+
+        /* Price */
+
+        document.getElementById(
+            "price" + column
+        ).innerHTML = `
+
+            <span class="compare-price">
+
+                ₹${Number(product.price)
+                    .toLocaleString("en-IN")}
+
+            </span>
+
+        `;
+
+
+        /* Category */
+
+        setValue(
+            "category" + column,
+            product.category
+        );
+
+
+        /* Display */
+
+        setValue(
+            "display" + column,
+            product.display
+        );
+
+
+        /* Processor */
+
+        setValue(
+            "processor" + column,
+            product.processor
+        );
+
+
+        /* RAM */
+
+        setValue(
+            "ram" + column,
+            product.ram
+        );
+
+
+        /* Storage */
+
+        setValue(
+            "storage" + column,
+            product.storage
+        );
+
+
+        /* Camera */
+
+        setValue(
+            "camera" + column,
+            product.camera
+        );
+
+
+        /* Battery */
+
+        setValue(
+            "battery" + column,
+            product.battery
+        );
+
+
+        /* Rating */
+
+        document.getElementById(
+            "rating" + column
+        ).innerHTML = `
+
+            <span class="compare-rating">
+
+                ⭐⭐⭐⭐⭐
+
+            </span>
+
+        `;
+
+
+        /* Remove button */
+
+        document.getElementById(
+            "remove" + column
+        ).innerHTML = `
+
+            <button
+                class="remove-product"
+                onclick="removeComparisonProduct(${index})"
+            >
+
+                Remove
+
+            </button>
+
+        `;
+
+    });
+
+}
+
+
+
+/* =====================================================
+   SET TABLE VALUE
+===================================================== */
+
+function setValue(
+    elementId,
+    value
+) {
+
+    const element =
+        document.getElementById(
+            elementId
+        );
+
+
+    if (value) {
+
+        element.textContent =
+            value;
+
+    } else {
+
+        element.textContent =
+            "—";
+
+    }
+
+}
+
+
+
+/* =====================================================
+   PRODUCT ICON
+===================================================== */
+
+function getProductIcon(category) {
+
+    if (!category) {
+
+        return "📦";
+
+    }
+
+
+    const categoryName =
+        category.toLowerCase();
+
+
+    if (
+        categoryName

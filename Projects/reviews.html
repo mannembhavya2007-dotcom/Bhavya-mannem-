@@ -1,0 +1,1227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="TechWorld customer reviews and ratings">
+
+    <title>Reviews - TechWorld</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        /* =================================================
+           REVIEWS PAGE
+        ================================================= */
+
+        .reviews-page {
+
+            min-height: 100vh;
+
+            background: #f8fafc;
+
+            padding: 55px 7%;
+        }
+
+
+        /* =================================================
+           TITLE
+        ================================================= */
+
+        .reviews-header {
+
+            text-align: center;
+
+            margin-bottom: 40px;
+        }
+
+
+        .reviews-header p:first-child {
+
+            color: #2563eb;
+
+            font-size: 13px;
+
+            font-weight: bold;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 8px;
+        }
+
+
+        .reviews-header h1 {
+
+            font-size: 40px;
+
+            color: #111827;
+
+            margin-bottom: 10px;
+        }
+
+
+        .reviews-header h1 span {
+
+            color: #2563eb;
+        }
+
+
+        .reviews-header .subtitle {
+
+            color: #64748b;
+
+            font-size: 16px;
+        }
+
+
+        /* =================================================
+           RATING SUMMARY
+        ================================================= */
+
+        .rating-summary {
+
+            background: white;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 15px;
+
+            padding: 30px;
+
+            display: grid;
+
+            grid-template-columns: 180px 1fr;
+
+            gap: 40px;
+
+            margin-bottom: 35px;
+
+            box-shadow:
+                0 8px 25px
+                rgba(0,0,0,0.04);
+        }
+
+
+        .overall-rating {
+
+            text-align: center;
+
+            border-right:
+                1px solid #e5e7eb;
+
+            padding-right: 30px;
+        }
+
+
+        .overall-number {
+
+            font-size: 48px;
+
+            font-weight: 700;
+
+            color: #111827;
+        }
+
+
+        .overall-stars {
+
+            color: #f59e0b;
+
+            font-size: 21px;
+
+            margin: 5px 0;
+        }
+
+
+        .overall-rating p {
+
+            color: #64748b;
+
+            font-size: 13px;
+        }
+
+
+        /* =================================================
+           RATING BARS
+        ================================================= */
+
+        .rating-bars {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 10px;
+        }
+
+
+        .rating-row {
+
+            display: grid;
+
+            grid-template-columns:
+                50px 1fr 45px;
+
+            align-items: center;
+
+            gap: 10px;
+        }
+
+
+        .rating-row span {
+
+            font-size: 13px;
+
+            color: #475569;
+        }
+
+
+        .bar {
+
+            height: 9px;
+
+            background: #e5e7eb;
+
+            border-radius: 10px;
+
+            overflow: hidden;
+        }
+
+
+        .bar-fill {
+
+            height: 100%;
+
+            background: #f59e0b;
+
+            border-radius: 10px;
+        }
+
+
+        .five-star {
+            width: 85%;
+        }
+
+
+        .four-star {
+            width: 10%;
+        }
+
+
+        .three-star {
+            width: 3%;
+        }
+
+
+        .two-star {
+            width: 1%;
+        }
+
+
+        .one-star {
+            width: 1%;
+        }
+
+
+        /* =================================================
+           REVIEW FORM
+        ================================================= */
+
+        .review-form-box {
+
+            background: white;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 15px;
+
+            padding: 30px;
+
+            margin-bottom: 35px;
+        }
+
+
+        .review-form-box h2 {
+
+            color: #111827;
+
+            margin-bottom: 5px;
+        }
+
+
+        .review-form-box > p {
+
+            color: #64748b;
+
+            font-size: 14px;
+
+            margin-bottom: 25px;
+        }
+
+
+        .form-group {
+
+            margin-bottom: 18px;
+        }
+
+
+        .form-group label {
+
+            display: block;
+
+            margin-bottom: 7px;
+
+            color: #374151;
+
+            font-size: 14px;
+
+            font-weight: 600;
+        }
+
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+
+            width: 100%;
+
+            padding: 12px;
+
+            border: 1px solid #d1d5db;
+
+            border-radius: 7px;
+
+            outline: none;
+
+            font-family: inherit;
+
+            font-size: 14px;
+
+            box-sizing: border-box;
+        }
+
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+
+            border-color: #2563eb;
+        }
+
+
+        .form-group textarea {
+
+            min-height: 110px;
+
+            resize: vertical;
+        }
+
+
+        /* =================================================
+           STAR SELECTOR
+        ================================================= */
+
+        .star-selector {
+
+            display: flex;
+
+            flex-direction: row-reverse;
+
+            justify-content: flex-end;
+
+            gap: 3px;
+        }
+
+
+        .star-selector input {
+
+            display: none;
+        }
+
+
+        .star-selector label {
+
+            font-size: 30px;
+
+            color: #cbd5e1;
+
+            cursor: pointer;
+
+            transition: 0.2s;
+        }
+
+
+        .star-selector label:hover,
+        .star-selector label:hover ~ label,
+        .star-selector input:checked ~ label {
+
+            color: #f59e0b;
+        }
+
+
+        .submit-review {
+
+            background: #2563eb;
+
+            color: white;
+
+            border: none;
+
+            padding: 13px 25px;
+
+            border-radius: 8px;
+
+            cursor: pointer;
+
+            font-size: 14px;
+
+            font-weight: 600;
+        }
+
+
+        .submit-review:hover {
+
+            background: #1d4ed8;
+        }
+
+
+        /* =================================================
+           REVIEWS LIST
+        ================================================= */
+
+        .reviews-list-header {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            margin-bottom: 20px;
+
+            gap: 15px;
+        }
+
+
+        .reviews-list-header h2 {
+
+            color: #111827;
+
+            margin: 0;
+        }
+
+
+        .sort-reviews {
+
+            padding: 9px 12px;
+
+            border: 1px solid #d1d5db;
+
+            border-radius: 7px;
+
+            background: white;
+        }
+
+
+        .review-card {
+
+            background: white;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 12px;
+
+            padding: 22px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .review-top {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: flex-start;
+
+            gap: 15px;
+
+            margin-bottom: 12px;
+        }
+
+
+        .review-user {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+        }
+
+
+        .user-avatar {
+
+            width: 45px;
+
+            height: 45px;
+
+            background: #dbeafe;
+
+            color: #2563eb;
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-weight: bold;
+
+            font-size: 17px;
+        }
+
+
+        .user-name {
+
+            font-weight: 700;
+
+            color: #111827;
+
+            font-size: 14px;
+        }
+
+
+        .review-date {
+
+            color: #94a3b8;
+
+            font-size: 12px;
+
+            margin-top: 3px;
+        }
+
+
+        .review-stars {
+
+            color: #f59e0b;
+
+            font-size: 16px;
+
+            white-space: nowrap;
+        }
+
+
+        .review-product {
+
+            display: inline-block;
+
+            background: #eff6ff;
+
+            color: #2563eb;
+
+            padding: 5px 9px;
+
+            border-radius: 5px;
+
+            font-size: 11px;
+
+            font-weight: 600;
+
+            margin-bottom: 10px;
+        }
+
+
+        .review-card h3 {
+
+            color: #111827;
+
+            font-size: 17px;
+
+            margin-bottom: 8px;
+        }
+
+
+        .review-card .review-text {
+
+            color: #64748b;
+
+            font-size: 14px;
+
+            line-height: 1.7;
+        }
+
+
+        .verified {
+
+            display: inline-block;
+
+            margin-top: 12px;
+
+            color: #15803d;
+
+            font-size: 12px;
+
+            font-weight: 600;
+        }
+
+
+        .no-reviews {
+
+            text-align: center;
+
+            background: white;
+
+            padding: 40px;
+
+            border-radius: 12px;
+
+            color: #64748b;
+        }
+
+
+        /* =================================================
+           RESPONSIVE
+        ================================================= */
+
+        @media(max-width: 750px) {
+
+            .reviews-page {
+
+                padding: 40px 5%;
+            }
+
+
+            .reviews-header h1 {
+
+                font-size: 30px;
+            }
+
+
+            .rating-summary {
+
+                grid-template-columns: 1fr;
+
+                gap: 25px;
+            }
+
+
+            .overall-rating {
+
+                border-right: none;
+
+                border-bottom:
+                    1px solid #e5e7eb;
+
+                padding-right: 0;
+
+                padding-bottom: 25px;
+            }
+
+
+            .review-top {
+
+                flex-direction: column;
+            }
+
+
+            .reviews-list-header {
+
+                flex-direction: column;
+
+                align-items: stretch;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="header">
+
+    <div class="logo">
+
+        <span>⚡</span>
+
+        TechWorld
+
+    </div>
+
+
+    <nav class="navbar">
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="products.html">
+            Products
+        </a>
+
+        <a href="compare.html">
+            Compare
+        </a>
+
+        <a href="reviews.html">
+            Reviews
+        </a>
+
+        <a href="orders.html">
+            Orders
+        </a>
+
+    </nav>
+
+
+    <div class="header-buttons">
+
+        <a href="cart.html"
+           class="cart-btn">
+
+            🛒 Cart
+
+            <span id="cart-count">
+                0
+            </span>
+
+        </a>
+
+    </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<main class="reviews-page">
+
+
+    <!-- TITLE -->
+
+    <div class="reviews-header">
+
+        <p>
+            CUSTOMER FEEDBACK
+        </p>
+
+        <h1>
+            Customer <span>Reviews</span>
+        </h1>
+
+        <p class="subtitle">
+
+            See what our customers think
+            about TechWorld products.
+
+        </p>
+
+    </div>
+
+
+
+    <!-- =================================================
+         RATING SUMMARY
+    ================================================= -->
+
+    <section class="rating-summary">
+
+
+        <div class="overall-rating">
+
+            <div class="overall-number"
+                 id="overallRating">
+
+                4.8
+
+            </div>
+
+            <div class="overall-stars">
+
+                ⭐⭐⭐⭐⭐
+
+            </div>
+
+            <p>
+
+                Based on
+                <span id="totalReviews">
+                    125
+                </span>
+                reviews
+
+            </p>
+
+        </div>
+
+
+        <div class="rating-bars">
+
+
+            <div class="rating-row">
+
+                <span>
+                    5 ⭐
+                </span>
+
+                <div class="bar">
+
+                    <div
+                        class="bar-fill five-star"
+                    ></div>
+
+                </div>
+
+                <span>
+                    85%
+                </span>
+
+            </div>
+
+
+            <div class="rating-row">
+
+                <span>
+                    4 ⭐
+                </span>
+
+                <div class="bar">
+
+                    <div
+                        class="bar-fill four-star"
+                    ></div>
+
+                </div>
+
+                <span>
+                    10%
+                </span>
+
+            </div>
+
+
+            <div class="rating-row">
+
+                <span>
+                    3 ⭐
+                </span>
+
+                <div class="bar">
+
+                    <div
+                        class="bar-fill three-star"
+                    ></div>
+
+                </div>
+
+                <span>
+                    3%
+                </span>
+
+            </div>
+
+
+            <div class="rating-row">
+
+                <span>
+                    2 ⭐
+                </span>
+
+                <div class="bar">
+
+                    <div
+                        class="bar-fill two-star"
+                    ></div>
+
+                </div>
+
+                <span>
+                    1%
+                </span>
+
+            </div>
+
+
+            <div class="rating-row">
+
+                <span>
+                    1 ⭐
+                </span>
+
+                <div class="bar">
+
+                    <div
+                        class="bar-fill one-star"
+                    ></div>
+
+                </div>
+
+                <span>
+                    1%
+                </span>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         REVIEW FORM
+    ================================================= -->
+
+    <section class="review-form-box">
+
+
+        <h2>
+            Write a Review
+        </h2>
+
+
+        <p>
+            Share your experience with other TechWorld customers.
+        </p>
+
+
+        <form id="reviewForm">
+
+
+            <!-- NAME -->
+
+            <div class="form-group">
+
+                <label for="reviewerName">
+                    Your Name
+                </label>
+
+                <input
+                    type="text"
+                    id="reviewerName"
+                    placeholder="Enter your name"
+                    required
+                >
+
+            </div>
+
+
+
+            <!-- PRODUCT -->
+
+            <div class="form-group">
+
+                <label for="reviewProduct">
+                    Product
+                </label>
+
+                <select
+                    id="reviewProduct"
+                    required
+                >
+
+                    <option value="">
+                        Select a product
+                    </option>
+
+                    <option>
+                        TechWorld X1
+                    </option>
+
+                    <option>
+                        TechBook Pro
+                    </option>
+
+                    <option>
+                        TechBuds Air
+                    </option>
+
+                    <option>
+                        TechWatch S1
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <!-- RATING -->
+
+            <div class="form-group">
+
+                <label>
+                    Your Rating
+                </label>
+
+
+                <div class="star-selector">
+
+
+                    <input
+                        type="radio"
+                        id="star5"
+                        name="rating"
+                        value="5"
+                        required
+                    >
+
+                    <label for="star5">
+                        ★
+                    </label>
+
+
+                    <input
+                        type="radio"
+                        id="star4"
+                        name="rating"
+                        value="4"
+                    >
+
+                    <label for="star4">
+                        ★
+                    </label>
+
+
+                    <input
+                        type="radio"
+                        id="star3"
+                        name="rating"
+                        value="3"
+                    >
+
+                    <label for="star3">
+                        ★
+                    </label>
+
+
+                    <input
+                        type="radio"
+                        id="star2"
+                        name="rating"
+                        value="2"
+                    >
+
+                    <label for="star2">
+                        ★
+                    </label>
+
+
+                    <input
+                        type="radio"
+                        id="star1"
+                        name="rating"
+                        value="1"
+                    >
+
+                    <label for="star1">
+                        ★
+                    </label>
+
+
+                </div>
+
+            </div>
+
+
+
+            <!-- REVIEW TITLE -->
+
+            <div class="form-group">
+
+                <label for="reviewTitle">
+                    Review Title
+                </label>
+
+                <input
+                    type="text"
+                    id="reviewTitle"
+                    placeholder="Example: Excellent product"
+                    required
+                >
+
+            </div>
+
+
+
+            <!-- REVIEW -->
+
+            <div class="form-group">
+
+                <label for="reviewText">
+                    Your Review
+                </label>
+
+                <textarea
+                    id="reviewText"
+                    placeholder="Write your experience..."
+                    required
+                ></textarea>
+
+            </div>
+
+
+
+            <button
+                type="submit"
+                class="submit-review"
+            >
+
+                ⭐ Submit Review
+
+            </button>
+
+
+        </form>
+
+    </section>
+
+
+
+    <!-- =================================================
+         REVIEWS LIST
+    ================================================= -->
+
+    <section>
+
+
+        <div class="reviews-list-header">
+
+            <h2>
+                Customer Reviews
+            </h2>
+
+
+            <select
+                class="sort-reviews"
+                id="sortReviews"
+                onchange="sortReviews()"
+            >
+
+                <option value="latest">
+                    Latest Reviews
+                </option>
+
+                <option value="highest">
+                    Highest Rating
+                </option>
+
+                <option value="lowest">
+                    Lowest Rating
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div id="reviewsList">
+        </div>
+
+
+    </section>
+
+
+</main>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="footer">
+
+    <div class="footer-content">
+
+
+        <div>
+
+            <h2>
+                ⚡ TechWorld
+            </h2>
+
+            <p>
+                Your trusted electronics
+                and gadgets store.
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h3>
+                Quick Links
+            </h3>
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="products.html">
+                Products
+            </a>
+
+            <a href="compare.html">
+                Compare
+            </a>
+
+            <a href="reviews.html">
+                Reviews
+            </a>
+
+        </div>
+
+
+        <div>
+
+            <h3>
+                Contact
+            </h3>
+
+            <p>
+                📧 support@techworld.com
+            </p>
+
+            <p>
+                📞 +91 98765 43210
+            </p>
+
+            <p>
+                📍 India
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="copyright">
+
+        <p>
+            © 2026 TechWorld.
+            All Rights Reserved.
