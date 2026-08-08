@@ -1,185 +1,382 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>StyleHub - Products</title>
 
-<link rel="stylesheet" href="style.css">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>HomeMart - Furniture</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
 </head>
+
 
 <body>
 
-<header>
 
-<div class="logo">StyleHub</div>
+<!-- ================= HEADER ================= -->
 
-<nav>
-<a href="index.html">Home</a>
-<a href="products.html">Products</a>
-<a href="wishlist.html">Wishlist</a>
-<a href="cart.html">Cart</a>
-<a href="checkout.html">Checkout</a>
-</nav>
+<header class="header">
+
+    <div class="logo">
+
+        <i class="fa-solid fa-house"></i>
+
+        <span>
+            Home<span class="logo-highlight">Mart</span>
+        </span>
+
+    </div>
+
+
+    <nav class="navbar">
+
+        <a href="index.html">Home</a>
+
+        <a href="products.html">Furniture</a>
+
+        <a href="room.html">Room Visualizer</a>
+
+        <a href="index.html#categories">Categories</a>
+
+        <a href="index.html#about">About</a>
+
+    </nav>
+
+
+    <div class="header-icons">
+
+        <button onclick="openSearch()">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+
+
+        <a href="cart.html">
+
+            <i class="fa-solid fa-cart-shopping"></i>
+
+            <span id="cart-count">0</span>
+
+        </a>
+
+
+        <button class="menu-btn"
+                onclick="toggleMenu()">
+
+            <i class="fa-solid fa-bars"></i>
+
+        </button>
+
+    </div>
 
 </header>
 
-<section class="featured">
 
-<h2>Our Products</h2>
+<!-- ================= SEARCH ================= -->
 
-<br>
+<div class="search-container"
+     id="searchBox">
 
-<input
-type="text"
-id="search"
-placeholder="Search Products..."
-onkeyup="searchProducts()">
+    <input
+        type="text"
+        id="searchInput"
+        placeholder="Search sofa, bed, table..."
+        onkeyup="liveSearch()">
 
-<br><br>
+    <button onclick="searchProducts()">
 
-<select id="sizeFilter" onchange="filterSize()">
-<option>All</option>
-<option>S</option>
-<option>M</option>
-<option>L</option>
-<option>XL</option>
-</select>
+        <i class="fa-solid fa-search"></i>
 
-<br><br>
-
-<div class="product-grid">
-
-<div class="product-card" data-size="M">
-<img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=500">
-
-<h3>Casual T-Shirt</h3>
-
-<p>₹699</p>
-
-<p>Size : M</p>
-
-<button onclick="addToCart('Casual T-Shirt',699)">
-Add To Cart
-</button>
-
-<button onclick="addToWishlist('Casual T-Shirt',699)">
-Wishlist
-</button>
+    </button>
 
 </div>
 
-<div class="product-card" data-size="L">
 
-<img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=500">
+<!-- ================= PAGE TITLE ================= -->
 
-<h3>Blue Jeans</h3>
+<section class="page-banner">
 
-<p>₹1299</p>
+    <div>
 
-<p>Size : L</p>
+        <p>HOMEMART COLLECTION</p>
 
-<button onclick="addToCart('Blue Jeans',1299)">
-Add To Cart
-</button>
+        <h1>
+            Furniture & Decor
+        </h1>
 
-<button onclick="addToWishlist('Blue Jeans',1299)">
-Wishlist
-</button>
+        <span>
+            Find beautiful furniture for every room.
+        </span>
 
-</div>
-
-<div class="product-card" data-size="S">
-
-<img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500">
-
-<h3>Running Shoes</h3>
-
-<p>₹1999</p>
-
-<p>Size : S</p>
-
-<button onclick="addToCart('Running Shoes',1999)">
-Add To Cart
-</button>
-
-<button onclick="addToWishlist('Running Shoes',1999)">
-Wishlist
-</button>
-
-</div>
-
-<div class="product-card" data-size="XL">
-
-<img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=500">
-
-<h3>Leather Handbag</h3>
-
-<p>₹1599</p>
-
-<p>Size : XL</p>
-
-<button onclick="addToCart('Leather Handbag',1599)">
-Add To Cart
-</button>
-
-<button onclick="addToWishlist('Leather Handbag',1599)">
-Wishlist
-</button>
-
-</div>
-
-<div class="product-card" data-size="M">
-
-<img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=500">
-
-<h3>Women's Dress</h3>
-
-<p>₹1799</p>
-
-<p>Size : M</p>
-
-<button onclick="addToCart('Women Dress',1799)">
-Add To Cart
-</button>
-
-<button onclick="addToWishlist('Women Dress',1799)">
-Wishlist
-</button>
-
-</div>
-
-<div class="product-card" data-size="L">
-
-<img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=500">
-
-<h3>Men's Jacket</h3>
-
-<p>₹2499</p>
-
-<p>Size : L</p>
-
-<button onclick="addToCart('Men Jacket',2499)">
-Add To Cart
-</button>
-
-<button onclick="addToWishlist('Men Jacket',2499)">
-Wishlist
-</button>
-
-</div>
-
-</div>
+    </div>
 
 </section>
 
+
+<!-- ================= PRODUCTS SECTION ================= -->
+
+<section class="products-page">
+
+
+    <!-- FILTER AREA -->
+
+    <div class="filter-area">
+
+        <div>
+
+            <h2>
+                Our Products
+            </h2>
+
+            <p id="product-count">
+                Showing all products
+            </p>
+
+        </div>
+
+
+        <div class="filters">
+
+            <button
+                class="filter-btn active"
+                onclick="filterProducts('All', this)">
+
+                All
+
+            </button>
+
+
+            <button
+                class="filter-btn"
+                onclick="filterProducts('Sofas', this)">
+
+                Sofas
+
+            </button>
+
+
+            <button
+                class="filter-btn"
+                onclick="filterProducts('Tables', this)">
+
+                Tables
+
+            </button>
+
+
+            <button
+                class="filter-btn"
+                onclick="filterProducts('Beds', this)">
+
+                Beds
+
+            </button>
+
+
+            <button
+                class="filter-btn"
+                onclick="filterProducts('Chairs', this)">
+
+                Chairs
+
+            </button>
+
+
+            <button
+                class="filter-btn"
+                onclick="filterProducts('Decor', this)">
+
+                Decor
+
+            </button>
+
+
+            <button
+                class="filter-btn"
+                onclick="filterProducts('Storage', this)">
+
+                Storage
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- PRODUCTS -->
+
+    <div class="product-grid"
+         id="productsContainer">
+
+    </div>
+
+
+    <!-- NO PRODUCTS -->
+
+    <div id="noProducts"
+         class="no-products">
+
+        <i class="fa-solid fa-box-open"></i>
+
+        <h2>
+            No products found
+        </h2>
+
+        <p>
+            Try another search or category.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ================= NEWSLETTER ================= -->
+
+<section class="newsletter">
+
+    <h2>
+        Get HomeMart Updates
+    </h2>
+
+    <p>
+        Subscribe for new furniture and special offers.
+    </p>
+
+
+    <div class="newsletter-form">
+
+        <input
+            type="email"
+            id="email"
+            placeholder="Enter your email">
+
+
+        <button onclick="subscribeNewsletter()">
+
+            Subscribe
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
 <footer>
 
-<p>© 2026 StyleHub | Fashion & Apparel</p>
+    <div class="footer-container">
+
+
+        <div class="footer-column">
+
+            <h2>
+
+                <i class="fa-solid fa-house"></i>
+
+                HomeMart
+
+            </h2>
+
+            <p>
+                Beautiful furniture for beautiful homes.
+            </p>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h3>
+                Quick Links
+            </h3>
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="products.html">
+                Furniture
+            </a>
+
+            <a href="room.html">
+                Room Visualizer
+            </a>
+
+            <a href="cart.html">
+                Cart
+            </a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h3>
+                Categories
+            </h3>
+
+            <a href="products.html">
+                Sofas
+            </a>
+
+            <a href="products.html">
+                Beds
+            </a>
+
+            <a href="products.html">
+                Tables
+            </a>
+
+            <a href="products.html">
+                Decor
+            </a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h3>
+                Contact
+            </h3>
+
+            <p>
+                support@homemart.com
+            </p>
+
+            <p>
+                +91 98765 43210
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="copyright">
+
+        <p>
+            © 2026 HomeMart. All Rights Reserved.
+        </p>
+
+    </div>
 
 </footer>
+
 
 <script src="script.js"></script>
 
 </body>
+
 </html>

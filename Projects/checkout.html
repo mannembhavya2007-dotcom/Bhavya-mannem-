@@ -1,136 +1,734 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StyleHub - Checkout</title>
 
-    <link rel="stylesheet" href="style.css">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>HomeMart - Checkout</title>
+
+    <link rel="stylesheet"
+          href="style.css">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
 </head>
+
 
 <body>
 
-<header>
 
-    <div class="logo">StyleHub</div>
+<!-- ================= HEADER ================= -->
 
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="products.html">Products</a>
-        <a href="wishlist.html">Wishlist</a>
-        <a href="cart.html">Cart</a>
-        <a href="checkout.html">Checkout</a>
+<header class="header">
+
+    <div class="logo">
+
+        <i class="fa-solid fa-house"></i>
+
+        <span>
+            Home<span class="logo-highlight">Mart</span>
+        </span>
+
+    </div>
+
+
+    <nav class="navbar">
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="products.html">
+            Furniture
+        </a>
+
+        <a href="room.html">
+            Room Visualizer
+        </a>
+
+        <a href="index.html#categories">
+            Categories
+        </a>
+
     </nav>
+
+
+    <div class="header-icons">
+
+        <a href="cart.html">
+
+            <i class="fa-solid fa-cart-shopping"></i>
+
+            <span id="cart-count">
+                0
+            </span>
+
+        </a>
+
+    </div>
 
 </header>
 
-<section class="featured">
 
-    <h2>Checkout</h2>
 
-    <form id="checkoutForm">
+<!-- ================= BANNER ================= -->
 
-        <input
-            type="text"
-            id="name"
-            placeholder="Full Name"
-            required>
+<section class="simple-banner">
 
-        <input
-            type="email"
-            id="email"
-            placeholder="Email Address"
-            required>
+    <p>
+        HOMEMART
+    </p>
 
-        <input
-            type="tel"
-            id="phone"
-            placeholder="Phone Number"
-            required>
+    <h1>
+        Checkout
+    </h1>
 
-        <textarea
-            id="address"
-            rows="4"
-            placeholder="Delivery Address"
-            required>
-        </textarea>
-
-        <select id="payment" required>
-
-            <option value="">Select Payment Method</option>
-
-            <option>Cash on Delivery</option>
-
-            <option>UPI</option>
-
-            <option>Credit Card</option>
-
-            <option>Debit Card</option>
-
-        </select>
-
-        <h3 id="orderTotal">
-            Order Total : ₹0
-        </h3>
-
-        <br>
-
-        <button type="submit">
-            Place Order
-        </button>
-
-    </form>
+    <span>
+        Complete your order and schedule delivery.
+    </span>
 
 </section>
 
+
+
+<!-- ================= CHECKOUT ================= -->
+
+<section class="checkout-section">
+
+
+    <!-- ================= FORM ================= -->
+
+    <div class="checkout-form">
+
+
+        <!-- CUSTOMER -->
+
+        <div class="checkout-card">
+
+            <div class="checkout-card-title">
+
+                <span>
+                    1
+                </span>
+
+                <div>
+
+                    <h2>
+                        Customer Information
+                    </h2>
+
+                    <p>
+                        Enter your contact details.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="form-grid">
+
+                <div class="form-group">
+
+                    <label>
+                        Full Name *
+                    </label>
+
+                    <input
+                        type="text"
+                        id="customerName"
+                        placeholder="Enter your full name"
+                        required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Phone Number *
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="customerPhone"
+                        placeholder="10-digit mobile number"
+                        maxlength="10"
+                        required>
+
+                </div>
+
+
+                <div class="form-group full-width">
+
+                    <label>
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="customerEmail"
+                        placeholder="example@email.com">
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ================= ADDRESS ================= -->
+
+        <div class="checkout-card">
+
+            <div class="checkout-card-title">
+
+                <span>
+                    2
+                </span>
+
+                <div>
+
+                    <h2>
+                        Delivery Address
+                    </h2>
+
+                    <p>
+                        Where should we deliver your furniture?
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="form-grid">
+
+                <div class="form-group full-width">
+
+                    <label>
+                        House / Building *
+                    </label>
+
+                    <input
+                        type="text"
+                        id="house"
+                        placeholder="House number, building name"
+                        required>
+
+                </div>
+
+
+                <div class="form-group full-width">
+
+                    <label>
+                        Street / Area *
+                    </label>
+
+                    <input
+                        type="text"
+                        id="street"
+                        placeholder="Street, area or locality"
+                        required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        City *
+                    </label>
+
+                    <input
+                        type="text"
+                        id="city"
+                        placeholder="City"
+                        required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        PIN Code *
+                    </label>
+
+                    <input
+                        type="text"
+                        id="pincode"
+                        placeholder="6-digit PIN"
+                        maxlength="6"
+                        required>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ================= DELIVERY ================= -->
+
+        <div class="checkout-card">
+
+            <div class="checkout-card-title">
+
+                <span>
+                    3
+                </span>
+
+                <div>
+
+                    <h2>
+                        Schedule Delivery
+                    </h2>
+
+                    <p>
+                        Choose your preferred delivery date and time.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="form-grid">
+
+
+                <div class="form-group">
+
+                    <label>
+                        Delivery Date *
+                    </label>
+
+                    <input
+                        type="date"
+                        id="deliveryDate"
+                        required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Time Slot *
+                    </label>
+
+                    <select id="deliveryTime">
+
+                        <option value="">
+                            Select time slot
+                        </option>
+
+                        <option value="9 AM - 12 PM">
+                            9 AM - 12 PM
+                        </option>
+
+                        <option value="12 PM - 3 PM">
+                            12 PM - 3 PM
+                        </option>
+
+                        <option value="3 PM - 6 PM">
+                            3 PM - 6 PM
+                        </option>
+
+                        <option value="6 PM - 9 PM">
+                            6 PM - 9 PM
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <div class="delivery-info">
+
+                <i class="fa-solid fa-truck"></i>
+
+                <p>
+                    Delivery is available from Monday to Sunday.
+                    Please select a future date.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ================= PAYMENT ================= -->
+
+        <div class="checkout-card">
+
+            <div class="checkout-card-title">
+
+                <span>
+                    4
+                </span>
+
+                <div>
+
+                    <h2>
+                        Payment Method
+                    </h2>
+
+                    <p>
+                        Choose how you want to pay.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="payment-options">
+
+
+                <label class="payment-option">
+
+                    <input
+                        type="radio"
+                        name="payment"
+                        value="Cash on Delivery"
+                        checked>
+
+                    <span class="payment-icon">
+                        💵
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            Cash on Delivery
+                        </strong>
+
+                        <small>
+                            Pay when your order arrives.
+                        </small>
+
+                    </div>
+
+                </label>
+
+
+                <label class="payment-option">
+
+                    <input
+                        type="radio"
+                        name="payment"
+                        value="UPI">
+
+                    <span class="payment-icon">
+                        📱
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            UPI
+                        </strong>
+
+                        <small>
+                            Pay using your UPI app.
+                        </small>
+
+                    </div>
+
+                </label>
+
+
+                <label class="payment-option">
+
+                    <input
+                        type="radio"
+                        name="payment"
+                        value="Card">
+
+                    <span class="payment-icon">
+                        💳
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            Credit / Debit Card
+                        </strong>
+
+                        <small>
+                            Secure card payment.
+                        </small>
+
+                    </div>
+
+                </label>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ================= ORDER SUMMARY ================= -->
+
+    <aside class="checkout-summary">
+
+        <h2>
+            Order Summary
+        </h2>
+
+
+        <div id="checkoutItems">
+
+            <!-- Products inserted by JavaScript -->
+
+        </div>
+
+
+        <div class="checkout-summary-row">
+
+            <span>
+                Subtotal
+            </span>
+
+            <strong id="checkoutSubtotal">
+                ₹0
+            </strong>
+
+        </div>
+
+
+        <div class="checkout-summary-row">
+
+            <span>
+                Delivery
+            </span>
+
+            <strong id="checkoutDelivery">
+                ₹0
+            </strong>
+
+        </div>
+
+
+        <div class="checkout-total">
+
+            <span>
+                Total
+            </span>
+
+            <strong id="checkoutTotal">
+                ₹0
+            </strong>
+
+        </div>
+
+
+        <button
+            onclick="placeOrder()"
+            class="place-order-btn">
+
+            <i class="fa-solid fa-lock"></i>
+
+            Place Order
+
+        </button>
+
+
+        <p class="secure-payment">
+
+            <i class="fa-solid fa-shield-halved"></i>
+
+            Your information is secure.
+
+        </p>
+
+    </aside>
+
+</section>
+
+
+
+<!-- ================= SUCCESS MODAL ================= -->
+
+<div id="orderSuccess"
+     class="success-overlay">
+
+    <div class="success-box">
+
+        <div class="success-icon">
+
+            <i class="fa-solid fa-check"></i>
+
+        </div>
+
+
+        <h2>
+            Order Confirmed!
+        </h2>
+
+
+        <p>
+            Thank you for shopping with HomeMart.
+        </p>
+
+
+        <div class="order-number">
+
+            Order ID:
+            <strong id="orderId">
+                HM000000
+            </strong>
+
+        </div>
+
+
+        <div class="delivery-confirmation">
+
+            <i class="fa-solid fa-truck"></i>
+
+            <p>
+
+                Delivery scheduled for
+
+                <strong id="confirmedDate">
+                    -
+                </strong>
+
+                <br>
+
+                <strong id="confirmedTime">
+                    -
+                </strong>
+
+            </p>
+
+        </div>
+
+
+        <a href="products.html"
+           class="btn primary-btn">
+
+            Continue Shopping
+
+        </a>
+
+    </div>
+
+</div>
+
+
+
+<!-- ================= FOOTER ================= -->
+
 <footer>
 
-<p>© 2026 StyleHub | Fashion & Apparel</p>
+    <div class="footer-container">
+
+        <div class="footer-column">
+
+            <h2>
+
+                <i class="fa-solid fa-house"></i>
+
+                HomeMart
+
+            </h2>
+
+            <p>
+                Beautiful furniture for beautiful homes.
+            </p>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h3>
+                Quick Links
+            </h3>
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="products.html">
+                Furniture
+            </a>
+
+            <a href="room.html">
+                Room Visualizer
+            </a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h3>
+                Categories
+            </h3>
+
+            <a href="products.html">
+                Sofas
+            </a>
+
+            <a href="products.html">
+                Beds
+            </a>
+
+            <a href="products.html">
+                Tables
+            </a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h3>
+                Contact
+            </h3>
+
+            <p>
+                support@homemart.com
+            </p>
+
+            <p>
+                +91 98765 43210
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="copyright">
+
+        <p>
+            © 2026 HomeMart. All Rights Reserved.
+        </p>
+
+    </div>
 
 </footer>
 
+
 <script src="script.js"></script>
 
-<script>
-
-// Show Cart Total
-let total = 0;
-
-cart.forEach(function(item){
-
-    total += item.price;
-
-});
-
-document.getElementById("orderTotal").innerHTML =
-"Order Total : ₹" + total;
-
-
-// Place Order
-
-document.getElementById("checkoutForm").addEventListener("submit", function(e){
-
-    e.preventDefault();
-
-    if(cart.length==0){
-
-        alert("Your cart is empty!");
-
-        return;
-
-    }
-
-    alert("🎉 Order Placed Successfully!\n\nThank you for shopping with StyleHub.");
-
-    cart=[];
-
-    localStorage.setItem("cart",JSON.stringify(cart));
-
-    window.location.href="index.html";
-
-});
-
-</script>
-
 </body>
+
 </html>

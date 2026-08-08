@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>HomeMart - Room Visualizer</title>
+
+    <link rel="stylesheet"
+          href="style.css">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+
+<body>
+
+
+<!-- ================= HEADER ================= -->
+
+<header class="header">
+
+    <div class="logo">
+
+        <i class="fa-solid fa-house"></i>
+
+        <span>
+            Home<span class="logo-highlight">Mart</span>
+        </span>
+
+    </div>
+
+
+    <nav class="navbar">
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="products.html">
+            Furniture
+        </a>
+
+        <a href="room.html">
+            Room Visualizer
+        </a>
+
+        <a href="index.html#categories">
+            Categories
+        </a>
+
+        <a href="cart.html">
+            Cart
+        </a>
+
+    </nav>
+
+
+    <div class="header-icons">
+
+        <a href="products.html">
+
+            <i class="fa-solid fa-store"></i>
+
+        </a>
+
+
+        <a href="cart.html">
+
+            <i class="fa-solid fa-cart-shopping"></i>
+
+            <span id="cart-count">
+                0
+            </span>
+
+        </a>
+
+    </div>
+
+</header>
+
+
+
+<!-- ================= PAGE BANNER ================= -->
+
+<section class="simple-banner">
+
+    <p>
+        HOMeMART DESIGN STUDIO
+    </p>
+
+    <h1>
+        Visualize Your Room
+    </h1>
+
+    <span>
+        Design your dream room before you buy.
+    </span>
+
+</section>
+
+
+
+<!-- ================= VISUALIZER ================= -->
+
+<section class="room-section">
+
+
+    <div class="room-intro">
+
+        <p>
+            ROOM VISUALIZER
+        </p>
+
+        <h2>
+            Create Your Dream Space
+        </h2>
+
+        <span>
+            Choose furniture below and add it to your room.
+        </span>
+
+    </div>
+
+
+
+    <div class="visualizer-layout">
+
+
+        <!-- ================= ROOM ================= -->
+
+        <div class="room-area">
+
+
+            <div class="room-top">
+
+                <h3>
+                    My Room
+                </h3>
+
+                <button
+                    onclick="clearRoom()"
+                    class="clear-room">
+
+                    <i class="fa-solid fa-trash"></i>
+
+                    Clear Room
+
+                </button>
+
+            </div>
+
+
+            <!-- ROOM -->
+
+            <div id="roomCanvas"
+                 class="room-canvas">
+
+
+                <!-- WINDOW -->
+
+                <div class="room-window">
+
+                    <div></div>
+
+                    <span>
+                        ☀️
+                    </span>
+
+                </div>
+
+
+                <!-- WALL DECOR -->
+
+                <div class="wall-picture">
+                    🖼️
+                </div>
+
+
+                <!-- FLOOR -->
+
+                <div class="room-floor"></div>
+
+
+                <!-- DEFAULT RUG -->
+
+                <div class="room-rug">
+                </div>
+
+
+                <!-- Furniture will appear here -->
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- ================= CONTROLS ================= -->
+
+        <div class="room-controls">
+
+
+            <h3>
+                Add Furniture
+            </h3>
+
+            <p>
+                Select an item to place it in your room.
+            </p>
+
+
+            <div class="furniture-options">
+
+
+                <button
+                    onclick="addFurniture('sofa')">
+
+                    <span>
+                        🛋️
+                    </span>
+
+                    Sofa
+
+                </button>
+
+
+                <button
+                    onclick="addFurniture('chair')">
+
+                    <span>
+                        🪑
+                    </span>
+
+                    Chair
+
+                </button>
+
+
+                <button
+                    onclick="addFurniture('table')">
+
+                    <span>
+                        🪵
+                    </span>
+
+                    Table
+
+                </button>
+
+
+                <button
+                    onclick="addFurniture('bed')">
+
+                    <span>
+                        🛏️
+                    </span>
+
+                    Bed
+
+                </button>
+
+
+                <button
+                    onclick="addFurniture('lamp')">
+
+                    <span>
+                        💡
+                    </span>
+
+                    Lamp
+
+                </button>
+
+
+                <button
+                    onclick="addFurniture('plant')">
+
+                    <span>
+                        🌿
+                    </span>
+
+                    Plant
+
+                </button>
+
+
+                <button
+                    onclick="addFurniture('tv')">
+
+                    <span>
+                        📺
+                    </span>
+
+                    TV
+
+                </button>
+
+
+                <button
+                    onclick="addFurniture('cabinet')">
+
+                    <span>
+                        🗄️
+                    </span>
+
+                    Cabinet
+
+                </button>
+
+            </div>
+
+
+
+            <!-- ================= ROOM STYLE ================= -->
+
+            <div class="room-style">
+
+                <h3>
+                    Room Style
+                </h3>
+
+
+                <button
+                    onclick="changeRoomStyle('modern')">
+
+                    Modern
+
+                </button>
+
+
+                <button
+                    onclick="changeRoomStyle('warm')">
+
+                    Warm
+
+                </button>
+
+
+                <button
+                    onclick="changeRoomStyle('minimal')">
+
+                    Minimal
+
+                </button>
+
+            </div>
+
+
+            <!-- ================= INSTRUCTIONS ================= -->
+
+            <div class="visualizer-tip">
+
+                <i class="fa-solid fa-lightbulb"></i>
+
+                <p>
+                    Tip: Add different furniture pieces
+                    to create your ideal room.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= HOW IT WORKS ================= -->
+
+<section class="how-section">
+
+    <div class="section-heading">
+
+        <p>
+            EASY DESIGN
+        </p>
+
+        <h2>
+            How Room Visualizer Works
+        </h2>
+
+    </div>
+
+
+    <div class="how-grid">
+
+
+        <div class="how-card">
+
+            <div>
+                1
+            </div>
+
+            <h3>
+                Choose Furniture
+            </h3>
+
+            <p>
+                Select sofas, chairs, tables,
+                beds and other furniture.
+            </p>
+
+        </div>
+
+
+        <div class="how-card">
+
+            <div>
+                2
+            </div>
+
+            <h3>
+                Build Your Room
+            </h3>
+
+            <p>
+                Add different pieces and create
+                your ideal room.
+            </p>
+
+        </div>
+
+
+        <div class="how-card">
+
+            <div>
+                3
+            </div>
+
+            <h3>
+                Shop Your Design
+            </h3>
+
+            <p>
+                Find your favorite furniture
+                and add it to your cart.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div class="footer-container">
+
+
+        <div class="footer-column">
+
+            <h2>
+
+                <i class="fa-solid fa-house"></i>
+
+                HomeMart
+
+            </h2>
+
+            <p>
+                Beautiful furniture for beautiful homes.
+            </p>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h3>
+                Quick Links
+            </h3>
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="products.html">
+                Furniture
+            </a>
+
+            <a href="cart.html">
+                Cart
+            </a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h3>
+                Categories
+            </h3>
+
+            <a href="products.html">
+                Sofas
+            </a>
+
+            <a href="products.html">
+                Beds
+            </a>
+
+            <a href="products.html">
+                Tables
+            </a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h3>
+                Contact
+            </h3>
+
+            <p>
+                support@homemart.com
+            </p>
+
+            <p>
+                +91 98765 43210
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="copyright">
+
+        <p>
+            © 2026 HomeMart. All Rights Reserved.
+        </p>
+
+    </div>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>

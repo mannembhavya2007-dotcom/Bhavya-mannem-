@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>HomeMart - Product Details</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+
+<body>
+
+
+<!-- ================= HEADER ================= -->
+
+<header class="header">
+
+    <div class="logo">
+
+        <i class="fa-solid fa-house"></i>
+
+        <span>
+            Home<span class="logo-highlight">Mart</span>
+        </span>
+
+    </div>
+
+
+    <nav class="navbar">
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="products.html">
+            Furniture
+        </a>
+
+        <a href="room.html">
+            Room Visualizer
+        </a>
+
+        <a href="index.html#categories">
+            Categories
+        </a>
+
+    </nav>
+
+
+    <div class="header-icons">
+
+        <a href="products.html">
+            <i class="fa-solid fa-store"></i>
+        </a>
+
+
+        <a href="cart.html">
+
+            <i class="fa-solid fa-cart-shopping"></i>
+
+            <span id="cart-count">
+                0
+            </span>
+
+        </a>
+
+    </div>
+
+</header>
+
+
+
+<!-- ================= BREADCRUMB ================= -->
+
+<div class="breadcrumb">
+
+    <a href="index.html">
+        Home
+    </a>
+
+    <i class="fa-solid fa-chevron-right"></i>
+
+    <a href="products.html">
+        Furniture
+    </a>
+
+    <i class="fa-solid fa-chevron-right"></i>
+
+    <span>
+        Product Details
+    </span>
+
+</div>
+
+
+
+<!-- ================= PRODUCT DETAILS ================= -->
+
+<section class="product-details-section">
+
+
+    <!-- IMAGE -->
+
+    <div class="product-detail-image">
+
+        <div id="productIcon"
+             class="detail-icon">
+
+            🛋️
+
+        </div>
+
+        <span class="detail-badge">
+            BEST SELLER
+        </span>
+
+    </div>
+
+
+
+    <!-- INFORMATION -->
+
+    <div class="product-detail-info">
+
+
+        <p id="productCategory"
+           class="detail-category">
+
+            FURNITURE
+
+        </p>
+
+
+        <h1 id="productName">
+
+            Premium Sofa
+
+        </h1>
+
+
+        <!-- RATING -->
+
+        <div class="detail-rating">
+
+            <span class="stars">
+                ★★★★★
+            </span>
+
+            <span>
+                4.8
+            </span>
+
+            <span class="review-count">
+                (124 Reviews)
+            </span>
+
+        </div>
+
+
+        <!-- PRICE -->
+
+        <div class="detail-price">
+
+            <strong id="productPrice">
+                ₹24,999
+            </strong>
+
+            <span class="old-price">
+                ₹31,999
+            </span>
+
+            <span class="discount">
+                22% OFF
+            </span>
+
+        </div>
+
+
+        <p id="productDescription"
+           class="detail-description">
+
+            Beautiful and comfortable furniture
+            designed to make your home stylish
+            and relaxing.
+
+        </p>
+
+
+        <!-- FEATURES -->
+
+        <div class="product-features">
+
+            <div>
+
+                <i class="fa-solid fa-truck"></i>
+
+                <span>
+                    Fast Delivery
+                </span>
+
+            </div>
+
+
+            <div>
+
+                <i class="fa-solid fa-shield-halved"></i>
+
+                <span>
+                    Quality Guaranteed
+                </span>
+
+            </div>
+
+
+            <div>
+
+                <i class="fa-solid fa-rotate-left"></i>
+
+                <span>
+                    Easy Returns
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- QUANTITY -->
+
+        <div class="detail-quantity">
+
+            <strong>
+                Quantity
+            </strong>
+
+
+            <div class="detail-quantity-control">
+
+                <button
+                    onclick="changeDetailQuantity(-1)">
+                    −
+                </button>
+
+                <span id="detailQuantity">
+                    1
+                </span>
+
+                <button
+                    onclick="changeDetailQuantity(1)">
+                    +
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- ACTIONS -->
+
+        <div class="detail-actions">
+
+
+            <button
+                id="detailCartButton"
+                class="detail-add-cart">
+
+                <i class="fa-solid fa-cart-shopping"></i>
+
+                Add to Cart
+
+            </button>
+
+
+            <button
+                id="detailWishlistButton"
+                class="detail-wishlist">
+
+                <i class="fa-regular fa-heart"></i>
+
+            </button>
+
+        </div>
+
+
+        <div class="stock-status">
+
+            <i class="fa-solid fa-circle"></i>
+
+            In Stock — Ready to ship
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= DESCRIPTION ================= -->
+
+<section class="description-section">
+
+
+    <div class="description-tabs">
+
+        <button class="active">
+            Description
+        </button>
+
+        <button>
+            Specifications
+        </button>
+
+        <button>
+            Reviews
+        </button>
+
+    </div>
+
+
+    <div class="description-content">
+
+        <h2>
+            About This Product
+        </h2>
+
+        <p>
+            HomeMart furniture combines comfort,
+            functionality and modern design.
+            Every piece is carefully selected
+            to make your home beautiful.
+        </p>
+
+        <p>
+            This product is designed using
+            high-quality materials and is suitable
+            for modern living spaces.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= RELATED PRODUCTS ================= -->
+
+<section class="related-section">
+
+
+    <div class="section-heading">
+
+        <p>
+            YOU MAY ALSO LIKE
+        </p>
+
+        <h2>
+            Related Products
+        </h2>
+
+    </div>
+
+
+    <div id="relatedProducts"
+         class="related-grid">
+
+        <!-- JavaScript -->
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div class="footer-container">
+
+
+        <div class="footer-column">
+
+            <h2>
+
+                <i class="fa-solid fa-house"></i>
+
+                HomeMart
+
+            </h2>
+
+            <p>
+                Beautiful furniture for beautiful homes.
+            </p>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h3>
+                Quick Links
+            </h3>
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="products.html">
+                Furniture
+            </a>
+
+            <a href="room.html">
+                Room Visualizer
+            </a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h3>
+                Categories
+            </h3>
+
+            <a href="products.html">
+                Sofas
+            </a>
+
+            <a href="products.html">
+                Beds
+            </a>
+
+            <a href="products.html">
+                Tables
+            </a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h3>
+                Contact
+            </h3>
+
+            <p>
+                support@homemart.com
+            </p>
+
+            <p>
+                +91 98765 43210
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="copyright">
+
+        <p>
+            © 2026 HomeMart. All Rights Reserved.
+        </p>
+
+    </div>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>

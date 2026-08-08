@@ -1,119 +1,566 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StyleHub - Fashion & Apparel</title>
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="HomeMart - Furniture and Home Decor">
+
+    <title>HomeMart - Furniture & Decor</title>
+
     <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
+
 <body>
 
-<header>
-    <div class="logo">StyleHub</div>
+    <!-- ================= HEADER ================= -->
 
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="products.html">Products</a>
-        <a href="wishlist.html">Wishlist</a>
-        <a href="cart.html">Cart</a>
-        <a href="checkout.html">Checkout</a>
-    </nav>
-</header>
+    <header class="header">
 
-<section class="hero">
+        <div class="logo">
+            <i class="fa-solid fa-house"></i>
+            <span>Home<span class="logo-highlight">Mart</span></span>
+        </div>
 
-    <div class="hero-text">
-        <h1>Fashion That Fits Your Style</h1>
+        <nav class="navbar">
+
+            <a href="index.html">Home</a>
+
+            <a href="products.html">Furniture</a>
+
+            <a href="room.html">Room Visualizer</a>
+
+            <a href="#categories">Categories</a>
+
+            <a href="#about">About</a>
+
+        </nav>
+
+        <div class="header-icons">
+
+            <button onclick="openSearch()">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+
+            <a href="cart.html">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span id="cart-count">0</span>
+            </a>
+
+            <button class="menu-btn" onclick="toggleMenu()">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= SEARCH BOX ================= -->
+
+    <div class="search-container" id="searchBox">
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search furniture, sofa, table...">
+
+        <button onclick="searchProducts()">
+            <i class="fa-solid fa-search"></i>
+        </button>
+
+    </div>
+
+
+    <!-- ================= HERO SECTION ================= -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <p class="small-title">
+                MAKE YOUR HOME BEAUTIFUL
+            </p>
+
+            <h1>
+                Furniture That
+                <span>Feels Like Home</span>
+            </h1>
+
+            <p>
+                Discover stylish furniture and beautiful home decor
+                designed to make every room comfortable and elegant.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="products.html"
+                   class="btn primary-btn">
+                    Shop Now
+                </a>
+
+                <a href="room.html"
+                   class="btn secondary-btn">
+                    Visualize Your Room
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FEATURES ================= -->
+
+    <section class="features">
+
+        <div class="feature">
+
+            <i class="fa-solid fa-truck"></i>
+
+            <div>
+                <h3>Fast Delivery</h3>
+                <p>Safe & scheduled delivery</p>
+            </div>
+
+        </div>
+
+
+        <div class="feature">
+
+            <i class="fa-solid fa-shield-halved"></i>
+
+            <div>
+                <h3>Secure Shopping</h3>
+                <p>100% secure checkout</p>
+            </div>
+
+        </div>
+
+
+        <div class="feature">
+
+            <i class="fa-solid fa-couch"></i>
+
+            <div>
+                <h3>Quality Furniture</h3>
+                <p>Premium quality products</p>
+            </div>
+
+        </div>
+
+
+        <div class="feature">
+
+            <i class="fa-solid fa-headset"></i>
+
+            <div>
+                <h3>Customer Support</h3>
+                <p>We're here to help</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CATEGORIES ================= -->
+
+    <section class="section"
+             id="categories">
+
+        <div class="section-heading">
+
+            <p>SHOP BY CATEGORY</p>
+
+            <h2>
+                Find Everything For Your Home
+            </h2>
+
+        </div>
+
+
+        <div class="category-grid">
+
+            <div class="category-card"
+                 onclick="filterCategory('Sofas')">
+
+                <div class="category-icon">
+                    <i class="fa-solid fa-couch"></i>
+                </div>
+
+                <h3>Sofas</h3>
+
+                <p>Comfortable & stylish sofas</p>
+
+            </div>
+
+
+            <div class="category-card"
+                 onclick="filterCategory('Tables')">
+
+                <div class="category-icon">
+                    <i class="fa-solid fa-table"></i>
+                </div>
+
+                <h3>Tables</h3>
+
+                <p>Dining & coffee tables</p>
+
+            </div>
+
+
+            <div class="category-card"
+                 onclick="filterCategory('Beds')">
+
+                <div class="category-icon">
+                    <i class="fa-solid fa-bed"></i>
+                </div>
+
+                <h3>Beds</h3>
+
+                <p>Relaxing bedroom furniture</p>
+
+            </div>
+
+
+            <div class="category-card"
+                 onclick="filterCategory('Chairs')">
+
+                <div class="category-icon">
+                    <i class="fa-solid fa-chair"></i>
+                </div>
+
+                <h3>Chairs</h3>
+
+                <p>Elegant chairs for every room</p>
+
+            </div>
+
+
+            <div class="category-card"
+                 onclick="filterCategory('Decor')">
+
+                <div class="category-icon">
+                    <i class="fa-solid fa-lightbulb"></i>
+                </div>
+
+                <h3>Decor</h3>
+
+                <p>Beautiful home accessories</p>
+
+            </div>
+
+
+            <div class="category-card"
+                 onclick="filterCategory('Storage')">
+
+                <div class="category-icon">
+                    <i class="fa-solid fa-box"></i>
+                </div>
+
+                <h3>Storage</h3>
+
+                <p>Smart storage solutions</p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= POPULAR PRODUCTS ================= -->
+
+    <section class="section products-section">
+
+        <div class="section-heading">
+
+            <p>OUR COLLECTION</p>
+
+            <h2>
+                Popular Furniture
+            </h2>
+
+            <span>
+                Designed for comfort, built for everyday living.
+            </span>
+
+        </div>
+
+
+        <div class="product-grid"
+             id="featuredProducts">
+
+            <!-- Products will be inserted using JavaScript -->
+
+        </div>
+
+
+        <div class="center-button">
+
+            <a href="products.html"
+               class="btn primary-btn">
+                View All Products
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= ROOM VISUALIZER ================= -->
+
+    <section class="visualizer-section">
+
+        <div class="visualizer-content">
+
+            <p class="small-title">
+                YOUR HOME, YOUR WAY
+            </p>
+
+            <h2>
+                Visualize Furniture
+                In Your Room
+            </h2>
+
+            <p>
+                Not sure how a sofa, table or chair will look
+                in your room? Try our room visualization feature
+                and imagine your perfect space before buying.
+            </p>
+
+            <a href="room.html"
+               class="btn primary-btn">
+                Try Room Visualizer
+            </a>
+
+        </div>
+
+        <div class="visualizer-image">
+
+            <div class="room-preview">
+
+                <i class="fa-solid fa-couch"></i>
+
+                <span>
+                    Your Dream Room
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= OFFER ================= -->
+
+    <section class="offer-section">
+
+        <div>
+
+            <p>LIMITED TIME OFFER</p>
+
+            <h2>
+                Make Your Home
+                More Beautiful
+            </h2>
+
+            <p>
+                Get special discounts on selected furniture.
+            </p>
+
+            <a href="products.html"
+               class="btn white-btn">
+                Explore Deals
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= ABOUT ================= -->
+
+    <section class="section about"
+             id="about">
+
+        <div class="about-content">
+
+            <p>ABOUT HOMEmART</p>
+
+            <h2>
+                Everything Your Home Needs
+            </h2>
+
+            <p>
+                HomeMart is a modern furniture and home decor
+                e-commerce platform designed to make furniture
+                shopping simple and enjoyable.
+            </p>
+
+            <p>
+                From comfortable sofas to elegant tables,
+                beautiful beds and stylish decor, we help you
+                create a home that reflects your personality.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= NEWSLETTER ================= -->
+
+    <section class="newsletter">
+
+        <h2>
+            Stay Updated
+        </h2>
 
         <p>
-            Discover trendy fashion, shoes, handbags and accessories
-            at affordable prices.
+            Get updates about new collections and offers.
         </p>
 
-        <a href="products.html" class="btn">
-            Shop Now
-        </a>
+        <div class="newsletter-form">
 
-    </div>
+            <input
+                type="email"
+                id="email"
+                placeholder="Enter your email">
 
-</section>
-
-<section class="categories">
-
-    <h2>Shop by Category</h2>
-
-    <div class="category-container">
-
-        <div class="category-card">
-            <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=500" alt="">
-            <h3>Men</h3>
-        </div>
-
-        <div class="category-card">
-            <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=500" alt="">
-            <h3>Women</h3>
-        </div>
-
-        <div class="category-card">
-            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500" alt="">
-            <h3>Shoes</h3>
-        </div>
-
-        <div class="category-card">
-            <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=500" alt="">
-            <h3>Bags</h3>
-        </div>
-
-    </div>
-
-</section>
-
-<section class="featured">
-
-    <h2>Featured Products</h2>
-
-    <div class="product-grid">
-
-        <div class="product-card">
-            <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=500" alt="">
-            <h3>Casual T-Shirt</h3>
-            <p>₹699</p>
-            <button onclick="addToCart('Casual T-Shirt',699)">
-                Add to Cart
+            <button onclick="subscribeNewsletter()">
+                Subscribe
             </button>
+
         </div>
 
-        <div class="product-card">
-            <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=500" alt="">
-            <h3>Blue Jeans</h3>
-            <p>₹1299</p>
-            <button onclick="addToCart('Blue Jeans',1299)">
-                Add to Cart
-            </button>
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div class="footer-container">
+
+            <div class="footer-column">
+
+                <h2>
+                    <i class="fa-solid fa-house"></i>
+                    HomeMart
+                </h2>
+
+                <p>
+                    Beautiful furniture for beautiful homes.
+                </p>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>Quick Links</h3>
+
+                <a href="index.html">Home</a>
+
+                <a href="products.html">Furniture</a>
+
+                <a href="room.html">Room Visualizer</a>
+
+                <a href="cart.html">Cart</a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>Categories</h3>
+
+                <a href="products.html">Sofas</a>
+
+                <a href="products.html">Beds</a>
+
+                <a href="products.html">Tables</a>
+
+                <a href="products.html">Decor</a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>Contact</h3>
+
+                <p>
+                    <i class="fa-solid fa-envelope"></i>
+                    support@homemart.com
+                </p>
+
+                <p>
+                    <i class="fa-solid fa-phone"></i>
+                    +91 98765 43210
+                </p>
+
+            </div>
+
         </div>
 
-        <div class="product-card">
-            <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500" alt="">
-            <h3>Hand Bag</h3>
-            <p>₹1599</p>
-            <button onclick="addToCart('Hand Bag',1599)">
-                Add to Cart
-            </button>
+
+        <div class="copyright">
+
+            <p>
+                © 2026 HomeMart. All Rights Reserved.
+            </p>
+
         </div>
 
-    </div>
+    </footer>
 
-</section>
 
-<footer>
+    <!-- JAVASCRIPT -->
 
-    <p>
-        © 2026 StyleHub | Fashion & Apparel
-    </p>
-
-</footer>
-
-<script src="script.js"></script>
+    <script src="script.js"></script>
 
 </body>
+
 </html>
+<section class="about-section">
+
+    <div class="about-content">
+
+        <p class="small-title">
+            ABOUT HOMEMART
+        </p>
+
+        <h2>
+            Furniture that makes
+            your house feel like home.
+        </h2>
+
+        <p>
+            HomeMart is a modern furniture
+            e-commerce website created to
+            make furniture shopping simple,
+            convenient and enjoyable.
+        </p>
+
+        <p>
+            Customers can explore furniture,
+            view product details, add products
+            to their cart, save their favourites
+            and schedule delivery.
+        </p>
+
+    </div>
+
+</section>
