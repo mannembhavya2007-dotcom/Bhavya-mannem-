@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>BookNook - Books & Stationery</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header>
+    <div class="navbar">
+
+        <div class="logo">
+            📚 BookNook
+        </div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#books">Books</a>
+            <a href="#categories">Categories</a>
+            <a href="#authors">Authors</a>
+            <a href="#reviews">Reviews</a>
+        </nav>
+
+        <button class="cart-button" onclick="openCart()">
+            🛒 Cart
+            <span id="cartCount">0</span>
+        </button>
+
+    </div>
+</header>
+
+
+<!-- ================= HOME ================= -->
+
+<section id="home" class="hero">
+
+    <div class="hero-content">
+
+        <p class="small-title">
+            YOUR NEXT GREAT READ
+        </p>
+
+        <h1>
+            Find stories that
+            <span>stay with you.</span>
+        </h1>
+
+        <p>
+            Discover bestselling books, inspiring self-help,
+            technology books and more at BookNook.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#books" class="btn">
+                Browse Books
+            </a>
+
+            <a href="#categories" class="btn secondary">
+                Explore Categories
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="hero-books">
+
+        <div class="book book-one">
+            <h3>
+                THE<br>
+                ALCHEMIST
+            </h3>
+        </div>
+
+        <div class="book book-two">
+            <h3>
+                ATOMIC<br>
+                HABITS
+            </h3>
+        </div>
+
+        <div class="book book-three">
+            <h3>
+                CLEAN<br>
+                CODE
+            </h3>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CATEGORIES ================= -->
+
+<section id="categories" class="section">
+
+    <div class="section-title">
+
+        <p class="small-title">
+            SHOP BY GENRE
+        </p>
+
+        <h2>
+            Popular Categories
+        </h2>
+
+    </div>
+
+    <div class="category-container">
+
+        <button onclick="filterCategory('Fiction')">
+            📖
+            <strong>Fiction</strong>
+            <small>Stories & Novels</small>
+        </button>
+
+        <button onclick="filterCategory('Self Help')">
+            🧠
+            <strong>Self Help</strong>
+            <small>Grow Every Day</small>
+        </button>
+
+        <button onclick="filterCategory('Technology')">
+            💻
+            <strong>Technology</strong>
+            <small>Code & Innovation</small>
+        </button>
+
+        <button onclick="filterCategory('Business')">
+            💼
+            <strong>Business</strong>
+            <small>Career & Money</small>
+        </button>
+
+        <button onclick="filterCategory('Education')">
+            🎓
+            <strong>Education</strong>
+            <small>Learn & Master</small>
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ================= BOOKS ================= -->
+
+<section id="books" class="section books-section">
+
+    <div class="section-title">
+
+        <p class="small-title">
+            OUR COLLECTION
+        </p>
+
+        <h2>
+            Featured Books
+        </h2>
+
+    </div>
+
+
+    <!-- SEARCH -->
+
+    <div class="search-container">
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="🔎 Search books, authors..."
+            onkeyup="searchBooks()"
+        >
+
+    </div>
+
+
+    <!-- FILTER BUTTONS -->
+
+    <div class="filters">
+
+        <button onclick="showAll()">
+            All
+        </button>
+
+        <button onclick="filterCategory('Fiction')">
+            Fiction
+        </button>
+
+        <button onclick="filterCategory('Self Help')">
+            Self Help
+        </button>
+
+        <button onclick="filterCategory('Technology')">
+            Technology
+        </button>
+
+        <button onclick="filterCategory('Business')">
+            Business
+        </button>
+
+        <button onclick="filterCategory('Education')">
+            Education
+        </button>
+
+    </div>
+
+
+    <!-- BOOKS -->
+
+    <div id="booksContainer" class="books-container">
+
+        <!-- JavaScript will create books here -->
+
+    </div>
+
+</section>
+
+
+<!-- ================= AUTHORS ================= -->
+
+<section id="authors" class="section">
+
+    <div class="section-title">
+
+        <p class="small-title">
+            MEET THE WRITERS
+        </p>
+
+        <h2>
+            Popular Authors
+        </h2>
+
+    </div>
+
+
+    <div class="authors-container">
+
+        <div class="author-card">
+
+            <div class="author-icon">
+                🪶
+            </div>
+
+            <h3>
+                Paulo Coelho
+            </h3>
+
+            <p>
+                Author of The Alchemist
+            </p>
+
+            <button onclick="showAuthor('Paulo Coelho')">
+                View Author
+            </button>
+
+        </div>
+
+
+        <div class="author-card">
+
+            <div class="author-icon">
+                ✍️
+            </div>
+
+            <h3>
+                James Clear
+            </h3>
+
+            <p>
+                Author of Atomic Habits
+            </p>
+
+            <button onclick="showAuthor('James Clear')">
+                View Author
+            </button>
+
+        </div>
+
+
+        <div class="author-card">
+
+            <div class="author-icon">
+                💻
+            </div>
+
+            <h3>
+                Robert C. Martin
+            </h3>
+
+            <p>
+                Author of Clean Code
+            </p>
+
+            <button onclick="showAuthor('Robert C. Martin')">
+                View Author
+            </button>
+
+        </div>
+
+
+        <div class="author-card">
+
+            <div class="author-icon">
+                💰
+            </div>
+
+            <h3>
+                Morgan Housel
+            </h3>
+
+            <p>
+                Author of The Psychology of Money
+            </p>
+
+            <button onclick="showAuthor('Morgan Housel')">
+                View Author
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= REVIEWS ================= -->
+
+<section id="reviews" class="section reviews-section">
+
+    <div class="section-title">
+
+        <p class="small-title">
+            WHAT READERS SAY
+        </p>
+
+        <h2>
+            Customer Reviews
+        </h2>
+
+    </div>
+
+
+    <div id="reviewsContainer">
+
+        <div class="review-card">
+
+            <div class="stars">
+                ⭐⭐⭐⭐⭐
+            </div>
+
+            <p>
+                "Atomic Habits is very practical and
+                easy to understand."
+            </p>
+
+            <strong>
+                Ananya
+            </strong>
+
+        </div>
+
+
+        <div class="review-card">
+
+            <div class="stars">
+                ⭐⭐⭐⭐⭐
+            </div>
+
+            <p>
+                "The Alchemist is a beautiful story.
+                I really enjoyed reading it."
+            </p>
+
+            <strong>
+                Rahul
+            </strong>
+
+        </div>
+
+    </div>
+
+
+    <button class="review-button"
+            onclick="openReviewForm()">
+
+        ✍ Write a Review
+
+    </button>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div class="footer-content">
+
+        <h2>
+            📚 BookNook
+        </h2>
+
+        <p>
+            Your friendly online bookstore for
+            curious minds and lifelong readers.
+        </p>
+
+        <p>
+            📧 hello@booknook.com
+        </p>
+
+        <p>
+            📞 +91 98765 43210
+        </p>
+
+    </div>
+
+    <div class="copyright">
+
+        © 2026 BookNook.
+        Web Development Internship Project.
+
+    </div>
+
+</footer>
+
+
+<!-- ================= CART MODAL ================= -->
+
+<div id="cartModal" class="modal">
+
+    <div class="modal-content">
+
+        <span class="close"
+              onclick="closeCart()">
+            &times;
+        </span>
+
+        <h2>
+            🛒 Your Cart
+        </h2>
+
+        <div id="cartItems">
+        </div>
+
+        <h3 id="cartTotal">
+            Total: ₹0
+        </h3>
+
+    </div>
+
+</div>
+
+
+<!-- ================= REVIEW MODAL ================= -->
+
+<div id="reviewModal" class="modal">
+
+    <div class="modal-content">
+
+        <span class="close"
+              onclick="closeReviewForm()">
+            &times;
+        </span>
+
+        <h2>
+            ✍ Write a Review
+        </h2>
+
+        <form onsubmit="addReview(event)">
+
+            <label>
+                Your Name
+            </label>
+
+            <input
+                type="text"
+                id="reviewName"
+                required
+            >
+
+
+            <label>
+                Book Name
+            </label>
+
+            <input
+                type="text"
+                id="reviewBook"
+                required
+            >
+
+
+            <label>
+                Rating
+            </label>
+
+            <select id="reviewRating">
+
+                <option value="5">
+                    ⭐⭐⭐⭐⭐
+                </option>
+
+                <option value="4">
+                    ⭐⭐⭐⭐
+                </option>
+
+                <option value="3">
+                    ⭐⭐⭐
+                </option>
+
+                <option value="2">
+                    ⭐⭐
+                </option>
+
+                <option value="1">
+                    ⭐
+                </option>
+
+            </select>
+
+
+            <label>
+                Your Review
+            </label>
+
+            <textarea
+                id="reviewText"
+                required
+            ></textarea>
+
+
+            <button type="submit"
+                    class="btn">
+
+                Publish Review
+
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
